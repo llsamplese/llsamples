@@ -14,16 +14,14 @@
         padding: 0;
         box-sizing: border-box;
     }
-
     /* Paleta de Cores:
-       Amarelo Principal (um pouco mais escuro que #FFD700): #FFC107 (Amber)
-       Amarelo para detalhes/highlights: #FFD700 (Gold)
-       Preto Principal: #212121 (Dark Grey, quase preto)
-       Preto para fundo/elementos mais escuros: #000000 (Black)
-       Cinza para texto secundário: #B0BEC5 (Light Blue Grey) ou #757575 (Grey)
-       Cinza para elementos internos: #3A3A3A, #424242
+        Amarelo Principal (um pouco mais escuro que #FFD700): #FFC107 (Amber)
+        Amarelo para detalhes/highlights: #FFD700 (Gold)
+        Preto Principal: #212121 (Dark Grey, quase preto)
+        Preto para fundo/elementos mais escuros: #000000 (Black)
+        Cinza para texto secundário: #B0BEC5 (Light Blue Grey) ou #757575 (Grey)
+        Cinza para elementos internos: #3A3A3A, #424242
     */
-
     body {
         font-family: 'Inter', 'Segoe UI', sans-serif;
         display: flex;
@@ -32,7 +30,6 @@
         color: #E0E0E0; /* Cor de texto padrão para o body (se houver texto solto) */
         min-height: 100vh;
     }
-
     .container {
         display: flex;
         width: 100%;
@@ -40,7 +37,6 @@
         gap: 20px;
         padding: 20px;
     }
-
     .form-panel {
         width: 35%;
         background: #212121; /* Fundo preto para o painel do formulário */
@@ -51,7 +47,6 @@
         animation: slideInLeft 0.5s ease;
         color: #E0E0E0; /* Texto claro dentro do painel */
     }
-
     .preview-panel {
         flex: 1;
         padding: 30px;
@@ -62,7 +57,6 @@
         animation: slideInRight 0.5s ease;
         color: #2c3e50; /* Texto claro dentro do painel */
     }
-
     @keyframes slideInLeft {
         from {
             opacity: 0;
@@ -73,7 +67,6 @@
             transform: translateX(0);
         }
     }
-
     @keyframes slideInRight {
         from {
             opacity: 0;
@@ -84,7 +77,6 @@
             transform: translateX(0);
         }
     }
-
     h2 {
         margin-top: 0;
         color: #FFC107; /* Amarelo principal para títulos */
@@ -94,7 +86,6 @@
         letter-spacing: -0.5px;
         text-align: center;
     }
-
     .logo-box {
         display: flex;
         align-items: center;
@@ -105,16 +96,14 @@
         border-radius: 15px;
         box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* Sombra mais escura */
     }
-
     .logo-preview {
         height: 60px;
         width: auto;
         /* Se a logo for preta, este filtro a deixará amarela.
-           Se a logo já for amarela, remova ou ajuste o filtro. */
+            Se a logo já for amarela, remova ou ajuste o filtro. */
         filter: invert(80%) sepia(100%) saturate(2000%) hue-rotate(350deg) brightness(100%) contrast(100%); /* Tenta deixar a logo amarela */
         display: block;
     }
-
     label {
         font-weight: 600;
         margin-top: 15px;
@@ -125,7 +114,6 @@
         letter-spacing: 0.5px;
         margin-bottom: 8px;
     }
-
     input, textarea {
         width: 100%;
         border: 2px solid #424242; /* Borda cinza escuro */
@@ -137,7 +125,6 @@
         background: #3A3A3A; /* Fundo cinza escuro para inputs/textareas */
         color: #E0E0E0; /* Texto claro */
     }
-
     input:focus, textarea:focus {
         outline: none;
         border-color: #FFC107; /* Borda amarela no foco */
@@ -145,17 +132,14 @@
         box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.3); /* Sombra amarela */
         transform: translateY(-2px);
     }
-
     .desconto-group {
         display: flex;
         gap: 15px;
         margin-top: 10px;
     }
-
     .desconto-group > div {
         flex: 1;
     }
-
     .sample-list {
         max-height: 320px;
         overflow-y: auto;
@@ -165,21 +149,17 @@
         background: #3A3A3A; /* Fundo cinza escuro para a lista de samples */
         margin-top: 10px;
     }
-
     .sample-list::-webkit-scrollbar {
         width: 8px;
     }
-
     .sample-list::-webkit-scrollbar-track {
         background: #212121; /* Fundo da barra de rolagem preto */
         border-radius: 10px;
     }
-
     .sample-list::-webkit-scrollbar-thumb {
         background: #FFC107; /* Cor do "polegar" da barra de rolagem amarelo */
         border-radius: 10px;
     }
-
     .sample-item {
         display: flex;
         align-items: center;
@@ -190,12 +170,10 @@
         transition: all 0.2s ease;
         cursor: pointer;
     }
-
     .sample-item:hover {
         background: #3A3A3A; /* Fundo um pouco mais claro no hover */
         transform: translateX(5px);
     }
-
     .sample-item input[type="checkbox"] {
         margin-right: 12px;
         width: 20px;
@@ -203,7 +181,6 @@
         cursor: pointer;
         accent-color: #FFC107; /* Cor do checkbox amarelo */
     }
-
     .sample-item label {
         margin: 0;
         cursor: pointer;
@@ -212,7 +189,6 @@
         text-transform: none;
         font-size: 0.95em;
     }
-
     button {
         padding: 12px 20px;
         border: none;
@@ -228,37 +204,30 @@
         letter-spacing: 0.5px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Sombra mais escura */
     }
-
     button:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         filter: brightness(1.1); /* Leve brilho no hover */
     }
-
     button:active {
         transform: translateY(0);
     }
-
     .btn-generate {
         background: #FFC107; /* Amarelo principal para gerar */
     }
-
     .btn-copy {
         background: #FFD700; /* Amarelo mais claro para copiar */
     }
-
     .btn-clear {
         background: #424242; /* Cinza escuro para limpar */
         color: #E0E0E0; /* Texto claro */
     }
-
     .btn-select {
         background: #FFC107; /* Amarelo principal para selecionar */
         color: #212121; /* Texto preto */
         width: 100%;
         margin-bottom: 10px;
     }
-
     .preview-panel h2 {
         color: #FFC107; /* Amarelo principal para o título do preview */
         border-bottom: 3px solid #FFC107; /* Borda amarela */
@@ -267,30 +236,24 @@
         align-items: center;
         gap: 10px;
     }
-
     #previewArea h2 {
         display: block !important;
         text-align: center !important;
         border-bottom: none !important;
     }
-
     #previewArea {
-   function normalizeString(str) {
-    let normalized = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-    // Padronizar "vX" e "X.0" para "vX"
-    // Ex: "v2" e "2.0" se tornam "v2"
-    // Ex: "v3" e "3.0" se tornam "v3"
-    normalized = normalized.replace(/(\s|^)v(\d+)/g, '$1v$2'); // Garante que 'v2' seja 'v2'
-    normalized = normalized.replace(/(\s|^)(\d+)\.0/g, '$1v$2'); // Converte '2.0' para 'v2'
-    // Remover espaços extras que podem surgir após as substituições
-    return normalized.trim().replace(/\s+/g, ' ');
-}
-
+        background: #3A3A3A; /* Fundo cinza escuro para a área de preview */
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-top: 20px;
+        animation: fadeIn 0.5s ease;
+        color: #2c3e50; /* Texto claro dentro da preview */
+    }
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
     }
-
     .total {
         font-weight: 700;
         font-size: 1.2em;
@@ -301,7 +264,6 @@
         border-left: 4px solid #FFC107; /* Borda amarela */
         color: #E0E0E0; /* Texto claro */
     }
-
     .valor-final {
         color: #FFD700; /* Amarelo mais claro para o valor final */
         font-weight: 700;
@@ -312,7 +274,6 @@
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
-
     .desconto-texto {
         color: #FFD700; /* Amarelo para o texto de desconto */
         font-weight: 600;
@@ -322,42 +283,40 @@
         border-radius: 8px;
         border-left: 4px solid #FFC107; /* Borda amarela */
     }
-
     .no-results {
         text-align: center;
         color: #B0BEC5; /* Cinza claro */
         font-style: italic;
         padding: 20px;
     }
-
     .button-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         margin-top: 20px;
     }
-
     .button-grid button {
         margin: 0;
     }
-
+    /* --- INÍCIO DAS CORREÇÕES PARA MOBILE --- */
     @media (max-width: 1024px) {
         .container {
-            flex-direction: column;
+            flex-direction: column; /* Empilha os painéis verticalmente */
             padding: 15px;
+            gap: 15px; /* Ajusta o espaçamento entre os painéis */
         }
         .form-panel {
-            width: 100%;
-            margin-bottom: 20px;
+            width: 100%; /* Ocupa a largura total */
+            margin-bottom: 0; /* Remove margem inferior extra */
         }
         .preview-panel {
-            width: 100%;
+            width: 100%; /* Ocupa a largura total */
+            margin-top: 0; /* Garante que não haja margem superior desnecessária */
         }
         .button-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Ajusta para 1 ou 2 colunas dependendo do espaço */
         }
     }
-
     @media (max-width: 768px) {
         body {
             font-size: 14px;
@@ -384,7 +343,11 @@
             padding: 10px 15px;
             font-size: 13px;
         }
+        .button-grid {
+            grid-template-columns: 1fr; /* Força uma única coluna em telas muito pequenas */
+        }
     }
+    /* --- FIM DAS CORREÇÕES PARA MOBILE --- */
 
     @media print {
         body * {
@@ -400,19 +363,16 @@
             width: 100%;
         }
     }
-
     a {
         color: #FFC107; /* Amarelo principal para links */
         text-decoration: none;
         font-weight: 600;
         transition: all 0.2s ease;
     }
-
     a:hover {
         color: #FFD700; /* Amarelo mais claro no hover */
         text-decoration: underline;
     }
-
     .form-section {
         margin-bottom: 25px;
         padding: 20px;
@@ -420,12 +380,10 @@
         border-radius: 12px;
         border: 2px solid #3A3A3A; /* Borda cinza escuro */
     }
-
     .form-section:hover {
         border-color: #FFC107; /* Borda amarela no hover */
         transition: all 0.3s ease;
     }
-
     .badge {
         display: inline-block;
         padding: 4px 12px;
@@ -436,43 +394,36 @@
         font-weight: 600;
         margin-left: 10px;
     }
-
     textarea {
         resize: vertical;
         min-height: 100px;
     }
-
     pre {
         white-space: pre-wrap;
         word-wrap: break-word;
         font-family: 'Inter', sans-serif;
         line-height: 1.6;
     }
-
     .btn-pdf {
         background: #FFC107; /* Amarelo principal para o botão PDF */
         color: #212121; /* Texto preto */
     }
-
     #pdfTemp {
         display: none;
     }
-
     .parcelas-container {
         margin: 20px 0;
         padding: 20px;
         background: #212121; /* Fundo preto para o container de parcelas */
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        display: none;
+        display: none; /* Escondido por padrão */
         color: #E0E0E0; /* Texto claro */
     }
-
     .parcelas-container.show {
         display: block;
         animation: slideDown 0.3s ease;
     }
-
     @keyframes slideDown {
         from {
             opacity: 0;
@@ -483,14 +434,12 @@
             transform: translateY(0);
         }
     }
-
     .parcelas-container h3 {
         color: #FFC107; /* Amarelo principal para o título das parcelas */
         text-align: center;
         margin: 0 0 15px 0;
         font-size: 1.3em;
     }
-
     .parcela-item {
         background: #3A3A3A; /* Fundo cinza escuro para cada item de parcela */
         padding: 12px 15px;
@@ -502,38 +451,32 @@
         transition: all 0.2s ease;
         color: #E0E0E0; /* Texto claro */
     }
-
     .parcela-item:hover {
         transform: translateX(5px);
         box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
-
     .parcela-item.destaque {
         background: #212121; /* Fundo preto para parcela em destaque */
         font-weight: 700;
         border-left: 4px solid #FFD700; /* Borda amarela mais clara */
         color: #FFD700; /* Texto amarelo para destaque */
     }
-
     .parcela-numero {
         font-weight: 600;
         color: #FFC107; /* Amarelo principal para o número da parcela */
         font-size: 1.1em;
     }
-
     .parcela-valor {
         font-size: 1.2em;
         font-weight: 700;
         color: #FFD700; /* Amarelo mais claro para o valor da parcela */
     }
-
     .parcela-juros {
         font-size: 0.85em;
         color: #B0BEC5; /* Cinza claro para juros */
         font-style: italic;
     }
 </style>
-
 </head>
 <body>
 <div class="container">
@@ -590,10 +533,7 @@ LL Metais"></textarea>
   <button class="btn-pdf" onclick="salvarPDF()">📄 PDF Completo</button>
   <button class="btn-pdf" onclick="salvarPDFResumido()">📋 PDF Resumido</button>
   <button class="btn-pdf" onclick="salvarPDFComLinks()">🔗 PDF c/ Links</button>
-<button class="btn-pdf" onclick="salvarPDFContinuo()" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">📜 PDF Contínuo c/ Parcelas</button>
-<button class="btn-pdf" onclick="salvarPDFContinuomobile()" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">📜 PDF Contínuo Celular</button>
   <button class="btn-clear" onclick="limparCampos()">🗑️ Limpar Tudo</button>
-<button class="btn-copy" onclick="toggleParcelas()" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">💳 Mostrar Parcelas</button>
 
 
 </div>
@@ -610,18 +550,6 @@ LL Metais"></textarea>
 </div>
 	<div id="pdfTemp"></div>
 <script>
-// Função auxiliar para remover acentos, converter para minúsculas e padronizar versões
-function normalizeString(str) {
-    let normalized = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-    // Padronizar "vX" e "X.0" para "vX"
-    // Ex: "v2" e "2.0" se tornam "v2"
-    // Ex: "v3" e "3.0" se tornam "v3"
-    normalized = normalized.replace(/(\s|^)v(\d+)/g, '$1v$2'); // Garante que 'v2' seja 'v2'
-    normalized = normalized.replace(/(\s|^)(\d+)\.0/g, '$1v$2'); // Converte '2.0' para 'v2'
-    // Remover espaços extras que podem surgir após as substituições
-    return normalized.trim().replace(/\s+/g, ' ');
-}
-
 const rawData = `LL Guitarra Forró|https://we.tl/t-A4Ew2QUAJB|70
 LL Pacote Produção Guilherme Silva|https://we.tl/t-Tjxvc3Rd2F|70
 LL Pacote Produção Arrocha|https://we.tl/t-wZBxe3EY45|70
@@ -747,8 +675,7 @@ const container = document.getElementById("samplesContainer");
 
 function renderSamples(filter="") {
   container.innerHTML = "";
-  const normalizedFilter = normalizeString(filter); // Normaliza o termo de busca
-  const filtered = samplesData.filter(s => normalizeString(s.nome).includes(normalizedFilter)); // Normaliza o nome do item antes de comparar
+  const filtered = samplesData.filter(s => s.nome.toLowerCase().includes(filter.toLowerCase()));
   if (filtered.length === 0) {
     container.innerHTML = "<p class='no-results'>Nenhum sample encontrado.</p>";
     return;
@@ -888,436 +815,71 @@ const videosDemo = {
   "LL Drums Luxúria": "https://www.youtube.com/watch?v=n8eJ6Q1Nq9A",
   "LL Pacote Produção Arrocha": "https://www.youtube.com/watch?v=YIuHRLtGSjU",
   "LL Pacote Produção Guilherme Silva": "https://www.youtube.com/watch?v=GF9Vlq8qOys",
-  "LL Bass Forro Romantico": "https://youtu.be/L8wgsiVASb0?si=K_wrF7f1Y-wC6x5A",
-  "LL Forrozao Drums v1.1": "https://www.youtube.com/watch?v=jEp5ZXmy0ik",
-  "LL Acordeon Forrozao": "https://www.youtube.com/watch?v=SOjvoOpe6jA&list=RDSOjvoOpe6jA&start_radio=1",
-  "LL Arrocha Drums Nadson": "https://www.youtube.com/watch?v=RPNK-7NEPKw&list=RDRPNK-7NEPKw&start_radio=1",
-  "LL Arrasta-Pe Drums": "https://www.youtube.com/watch?v=nAOiYoV1Y6U&list=RDnAOiYoV1Y6U&start_radio=1",
-  "LL Guitarra Piseiro 2.0": "https://www.youtube.com/watch?v=ElgxzAuavdY&list=RDElgxzAuavdY&start_radio=1",
-  "LL Guitarra Pagodão": "https://www.youtube.com/watch?v=vv-1QI_RbKM&pp=ygUTTEwgR3VpdGFycmEgUGFnb2Rhb9IHCQkICgGHKiGM7w%3D%3D",
-  "LL Axé Drums": "https://www.youtube.com/watch?v=Yzg5m4ZJw1g&t=20s",
-  "LL Guitarra Axé": "https://www.youtube.com/watch?v=NkO61zkS-C8&list=RDNkO61zkS-C8&start_radio=1",
-  "LL Axé Percussão": "https://www.youtube.com/watch?v=9rbJgipJmV0&list=RD9rbJgipJmV0&start_radio=1",
-  "LL Piseiro Drums 2.0": "https://www.youtube.com/watch?v=I0gpLLrcGe4&list=RDI0gpLLrcGe4&start_radio=1",
   "LL Guitarra Forró": "https://www.youtube.com/watch?v=76wm2WOucCs"
 };
 
 function buscarESelecionarMultiplos() {
-    const texto = document.getElementById("sampleSearch").value;
-    const linhas = texto.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+  const texto = document.getElementById("sampleSearch").value;
+  const linhas = texto.split('\n').map(l => l.trim()).filter(l => l.length > 0);
 
-    if (linhas.length === 0) {
-        alert("⚠️ Digite os nomes dos samples (um por linha)!");
-        return;
-    }
+  if (linhas.length === 0) {
+    alert("⚠️ Digite os nomes dos samples (um por linha)!");
+    return;
+  }
 
-    let encontrados = 0;
-    let naoEncontrados = [];
-    selectedSamples.clear(); // Limpa a seleção atual antes de buscar
+  let encontrados = 0;
+  let naoEncontrados = [];
 
-    linhas.forEach(buscaTerm => {
-        const normalizedSearchTerm = normalizeString(buscaTerm);
-        let achouParaEsteTermo = false;
-        let tempMatches = []; // Para armazenar os índices dos itens que correspondem a este termo de busca
+  selectedSamples.clear();
 
-        // Primeiro, tenta encontrar uma correspondência EXATA (após normalização)
-        const exactMatchIndex = samplesData.findIndex(item => normalizeString(item.nome) === normalizedSearchTerm);
+  linhas.forEach(busca => {
+    let achou = false;
+    const buscaLimpa = busca.toLowerCase().trim();
 
-        if (exactMatchIndex !== -1) {
-            // Se encontrou uma correspondência exata, adiciona apenas ela
-            tempMatches.push(exactMatchIndex);
-            achouParaEsteTermo = true;
-        } else {
-            // Se não encontrou uma correspondência exata, procura por itens que CONTENHAM o termo de busca
-            samplesData.forEach((sample, index) => {
-                const normalizedItemName = normalizeString(sample.nome);
-                if (normalizedItemName.includes(normalizedSearchTerm)) {
-                    tempMatches.push(index);
-                    achouParaEsteTermo = true;
-                }
-            });
+    samplesData.forEach((sample, index) => {
+      const nomeLimpo = sample.nome.toLowerCase();
+
+      // Busca bidirecional: verifica se um contém o outro
+      if (nomeLimpo.includes(buscaLimpa) || buscaLimpa.includes(nomeLimpo)) {
+        selectedSamples.add(index);
+        achou = true;
+      } else {
+        // Busca por palavras-chave (ignora versões)
+        const palavrasBusca = buscaLimpa.split(' ').filter(p => p.length > 2);
+        const palavrasNome = nomeLimpo.split(' ').filter(p => p.length > 2);
+
+        // Se pelo menos 80% das palavras coincidem, considera match
+        let matches = 0;
+        palavrasBusca.forEach(palavra => {
+          if (palavrasNome.some(p => p.includes(palavra) || palavra.includes(p))) {
+            matches++;
+          }
+        });
+
+        if (matches >= palavrasBusca.length * 0.8) {
+          selectedSamples.add(index);
+          achou = true;
         }
-
-        // Adiciona os itens encontrados para este termo de busca ao conjunto de seleção global
-        tempMatches.forEach(index => selectedSamples.add(index));
-
-        if (achouParaEsteTermo) {
-            encontrados++;
-        } else {
-            naoEncontrados.push(buscaTerm);
-        }
+      }
     });
 
-    renderSamples(document.getElementById("sampleSearch").value); // Re-renderiza a lista com os itens selecionados
-
-    let mensagem = `✅ ${encontrados} sample(s) encontrado(s) e selecionado(s)!`;
-    if (naoEncontrados.length > 0) {
-        mensagem += `\n\n⚠️ Não encontrados:\n${naoEncontrados.join('\n')}`;
+    if (achou) {
+      encontrados++;
+    } else {
+      naoEncontrados.push(busca);
     }
-    alert(mensagem);
-}
-
-
-// Taxas de parcelamento (aplicadas SOBRE o valor com 5,24% do cartão)
-const taxasParcelas = {
-  1: 0,      // Sem acréscimo adicional (só os 5,24% do cartão)
-  2: 9.64,
-  3: 11.23,
-  4: 11.36,
-  5: 14.31,
-  6: 14.32,
-  7: 16.72,
-  8: 16.73,
-  9: 19.69,
-  10: 20.65,
-  11: 20.66,
-  12: 22.11
-};
-
-let parcelasVisiveis = false;
-
-function toggleParcelas() {
-  const container = document.querySelector('.parcelas-container');
-  const btn = event.target;
-
-  if (!container) {
-    alert("⚠️ Gere o orçamento primeiro!");
-    return;
-  }
-
-  parcelasVisiveis = !parcelasVisiveis;
-
-  if (parcelasVisiveis) {
-    container.classList.add('show');
-    btn.textContent = '💳 Ocultar Parcelas';
-  } else {
-    container.classList.remove('show');
-    btn.textContent = '💳 Mostrar Parcelas';
-  }
-}
-
-function gerarHTMLParcelas(valorFinal) {
-  // Valor com os 5,24% do cartão (base para o parcelamento)
-  const valorCartao = valorFinal * 1.0524;
-
-  let html = `
-    <div class="parcelas-container">
-      <h3>💳 SIMULAÇÃO DE PARCELAMENTO NO CARTÃO</h3>
-  `;
-
-  for (let parcela = 1; parcela <= 12; parcela++) {
-    // Calcula o valor com juros de parcelamento sobre o valor do cartão
-    const taxaDecimal = taxasParcelas[parcela] / 100;
-    const valorComJuros = valorCartao * (1 + taxaDecimal);
-    const valorParcela = valorComJuros / parcela;
-    const valorTotal = valorParcela * parcela;
-
-    const classeDestaque = parcela === 1 ? ' destaque' : '';
-    const textoAcrescimo = parcela === 1 
-      ? '(Sem acréscimo adicional)' 
-      : `<span class="parcela-juros">+${taxasParcelas[parcela]}% = ${valorTotal.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>`;
-
-    html += `
-      <div class="parcela-item${classeDestaque}">
-        <span class="parcela-numero">${parcela}x</span>
-        <span class="parcela-valor">${valorParcela.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>
-        <span>${textoAcrescimo}</span>
-      </div>
-    `;
-  }
-
-  html += `</div>`;
-  return html;
-}
-
-function salvarPDFContinuo() {
-  const cliente = document.getElementById("cliente").value.trim();
-  const contato = document.getElementById("contato").value.trim();
-  const perc = parseFloat(document.getElementById("descontoPerc").value) || 0;
-  const val = parseFloat(document.getElementById("descontoVal").value) || 0;
-  const msgAdd = document.getElementById("mensagem").value.trim();
-  const qtdSamples = selectedSamples.size;
-
-  if (qtdSamples === 0) {
-    alert("⚠️ Selecione ao menos um sample!");
-    return;
-  }
-
-  let total = 0;
-  let samplesHTML = '';
-
-  selectedSamples.forEach(i => {
-    const s = samplesData[i];
-    samplesHTML += `
-      <div style="padding:8px 10px; margin:5px 0; background:#f5f5f5; border-left:4px solid #667eea;">
-        <strong>• ${s.nome}</strong> <span style="float:right;">R$ ${s.valor.toFixed(2)}</span>
-      </div>`;
-    total += s.valor;
   });
 
-  const descPerc = total * (perc / 100);
-  const descTotal = descPerc + val;
-  const final = total - descTotal;
+  renderSamples();
 
-  let descontoHTML = '';
-  if (perc > 0 || val > 0) {
-    const valorPerc = perc > 0 ? total * (perc / 100) : 0;
-    descontoHTML = `
-      <div style="padding:12px; margin:15px 0; background:#ffe5e5; border-left:4px solid #e53e3e;">
-        <strong style="color:#e53e3e;">🔻 Desconto Aplicado:</strong><br>
-        ${perc > 0 ? `• Percentual: ${perc}% = ${valorPerc.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}<br>` : ''}
-        ${val > 0 ? `• Valor fixo: ${val.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}` : ''}
-      </div>`;
+  let mensagem = `✅ ${encontrados} sample(s) encontrado(s) e selecionado(s)!`;
+  if (naoEncontrados.length > 0) {
+    mensagem += `\n\n⚠️ Não encontrados:\n${naoEncontrados.join('\n')}`;
   }
 
-  // Gerar HTML das parcelas para PDF
-  const valorCartao = final * 1.0524;
-  let parcelasHTML = `
-    <div style="margin:20px 0; padding:15px; background:#f7fafc; border:2px solid #667eea; border-radius:10px;">
-      <h3 style="color:#667eea; text-align:center; margin:0 0 15px 0; font-size:18px;">💳 SIMULAÇÃO DE PARCELAMENTO NO CARTÃO</h3>
-  `;
-
-  for (let parcela = 1; parcela <= 12; parcela++) {
-    const taxaDecimal = taxasParcelas[parcela] / 100;
-    const valorComJuros = valorCartao * (1 + taxaDecimal);
-    const valorParcela = valorComJuros / parcela;
-    const valorTotal = valorParcela * parcela;
-
-    const bgColor = parcela === 1 ? '#d4fc79' : 'white';
-    const borderColor = parcela === 1 ? '#38a169' : '#e2e8f0';
-
-    const textoAcrescimo = parcela === 1 
-      ? '<span style="color:#38a169; font-style:italic;">(Sem acréscimo adicional)</span>' 
-      : `<span style="color:#e53e3e; font-style:italic;">+${taxasParcelas[parcela]}% = ${valorTotal.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>`;
-
-    parcelasHTML += `
-      <div style="background:${bgColor}; padding:10px; margin:5px 0; border-left:4px solid ${borderColor};">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
-          <span style="font-weight:600; color:#667eea; font-size:16px; min-width:30px;">${parcela}x</span>
-          <span style="font-size:18px; font-weight:700; color:#2d3748; min-width:100px;">${valorParcela.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>
-          <span style="font-size:14px; flex:1; text-align:right;">${textoAcrescimo}</span>
-        </div>
-      </div>
-    `;
-  }
-
-  parcelasHTML += `</div>`;
-
-  const conteudo = `
-    <div style="font-family:Arial,sans-serif; padding:40px 60px; background:white; color:#333; line-height:1.6; max-width:750px; margin:0 auto;">
-      <div style="text-align:center; margin-bottom:25px; padding-bottom:15px; border-bottom:3px solid #667eea;">
-        <h1 style="color:#667eea; margin:0; font-size:32px;">🎹 LL SAMPLES 🎹</h1>
-        <h2 style="color:#764ba2; margin:10px 0 0 0; font-size:18px;">🌟 ORÇAMENTO ESPECIAL – ${qtdSamples} SAMPLE${qtdSamples>1?"S":""}</h2>
-      </div>
-
-      ${cliente ? `<div style="padding:10px; background:#f7fafc; margin:10px 0;"><strong>👤 Cliente:</strong> ${cliente}</div>` : ''}
-      ${contato ? `<div style="padding:10px; background:#f7fafc; margin:10px 0;"><strong>📲 Contato:</strong> ${contato}</div>` : ''}
-
-      <h3 style="color:#667eea; margin:20px 0 10px 0;">🗒️ SAMPLES SELECIONADOS:</h3>
-      ${samplesHTML}
-
-      ${(perc > 0 || val > 0) ? `<div style="padding:15px; margin:15px 0; background:#f7fafc; border-left:4px solid #667eea; font-size:16px;"><strong>💰 Valor Bruto:</strong> ${total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</div>` : ''}
-      ${descontoHTML}
-
-      <div style="padding:15px; margin:15px 0; background:#667eea; color:white; font-size:16px; border-radius:8px;">
-        <strong>💳 Total Final (Cartão c/ acréscimo 5,24%):</strong><br>
-        <span style="font-size:24px; font-weight:bold;">${(final * 1.0524).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
-      </div>
-
-      ${parcelasHTML}
-
-      <div style="padding:15px; margin:15px 0; background:#d4fc79; color:#2d3748; font-size:16px; border-radius:8px;">
-        <strong>💵 Total Final (PIX):</strong><br>
-        <span style="font-size:24px; font-weight:bold;">${final.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
-      </div>
-
-      ${msgAdd ? `<div style="padding:15px; background:#f7fafc; border-left:4px solid #667eea; margin-top:15px;"><p style="margin:0; font-style:italic; color:#666;">${msgAdd}</p></div>` : ''}
-
-      <hr style="margin:25px 0; border:none; border-top:2px solid #ddd;">
-      <div style="background:#f7fafc; padding:15px; border-left:4px solid #667eea;">
-        <h4 style="color:#667eea; margin:0 0 10px 0;">📝 Informações Importantes:</h4>
-        <p style="margin:5px 0;">🔗 Os links para download estão disponíveis após a confirmação do pagamento.</p>
-        <p style="margin:15px 0 5px 0;"><strong>⚡ LL SAMPLES ⚡</strong></p>
-        <p style="margin:5px 0;">🎹 Obrigado pela compra! | 👊🏻 Instagram: @llsamples_</p>
-      </div>
-
-      <div style="text-align:center; margin-top:30px; padding-top:15px; border-top:1px solid #ddd; color:#999; font-size:11px;">
-        <p>Orçamento gerado em ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}</p>
-      </div>
-    </div>
-  `;
-
-  const elemento = document.createElement('div');
-  elemento.innerHTML = conteudo;
-  elemento.style.width = '100%';
-  elemento.style.backgroundColor = 'white';
-  document.body.appendChild(elemento);
-
-  const opt = {
-    margin: 0,
-    filename: `Orcamento_Parcelas_${Date.now()}.pdf`,
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { 
-      scale: 2,
-      useCORS: true,
-      letterRendering: true
-    },
-    jsPDF: { 
-      unit: 'mm', 
-      format: [210, 297 * 3], // Aumenta o tamanho para caber tudo sem quebra
-      orientation: 'portrait',
-      compress: true
-    },
-    pagebreak: { mode: 'avoid-all' }
-  };
-
-  html2pdf().set(opt).from(elemento).save().finally(() => {
-    document.body.removeChild(elemento);
-    alert("✅ PDF com Parcelas gerado!");
-  });
+  alert(mensagem);
 }
 
-function salvarPDFContinuomobile() {
-  const cliente = document.getElementById("cliente").value.trim();
-  const contato = document.getElementById("contato").value.trim();
-  const perc = parseFloat(document.getElementById("descontoPerc").value) || 0;
-  const val = parseFloat(document.getElementById("descontoVal").value) || 0;
-  const msgAdd = document.getElementById("mensagem").value.trim();
-  const qtdSamples = selectedSamples.size;
-
-  if (qtdSamples === 0) {
-    alert("⚠️ Selecione ao menos um sample!");
-    return;
-  }
-
-  let total = 0;
-  let samplesHTML = '';
-
-  selectedSamples.forEach(i => {
-    const s = samplesData[i];
-    samplesHTML += `
-      <div style="padding:10px; margin:8px 0; background:#f5f5f5; border-left:4px solid #667eea; display:flex; justify-content:space-between;">
-        <strong>• ${s.nome}</strong>
-        <span>R$ ${s.valor.toFixed(2)}</span>
-      </div>`;
-    total += s.valor;
-  });
-
-  const descPerc = total * (perc / 100);
-  const descTotal = descPerc + val;
-  const final = total - descTotal;
-  const valorCartao = final * 1.0524;
-
-  let descontoHTML = '';
-  if (perc > 0 || val > 0) {
-    const valorPerc = perc > 0 ? total * (perc / 100) : 0;
-    descontoHTML = `
-      <div style="padding:12px; margin:15px 0; background:#ffe5e5; border-left:4px solid #e53e3e;">
-        <strong style="color:#e53e3e;">🔻 Desconto Aplicado:</strong><br>
-        ${perc > 0 ? `• Percentual: ${perc}% = ${valorPerc.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}<br>` : ''}
-        ${val > 0 ? `• Valor fixo: ${val.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}` : ''}
-      </div>`;
-  }
-
-  // Gera HTML das parcelas
-  let parcelasHTML = `
-    <div style="margin:20px 0; padding:15px; background:#f7fafc; border:2px solid #667eea; border-radius:10px;">
-      <h3 style="color:#667eea; text-align:center; margin:0 0 15px 0; font-size:18px;">💳 SIMULAÇÃO DE PARCELAMENTO NO CARTÃO</h3>
-  `;
-
-  for (let parcela = 1; parcela <= 12; parcela++) {
-    const taxaDecimal = taxasParcelas[parcela] / 100;
-    const valorComJuros = valorCartao * (1 + taxaDecimal);
-    const valorParcela = valorComJuros / parcela;
-    const valorTotal = valorParcela * parcela;
-
-    const bgColor = parcela === 1 ? '#d4fc79' : 'white';
-    const borderColor = parcela === 1 ? '#38a169' : '#e2e8f0';
-
-    const textoAcrescimo = parcela === 1 
-      ? '<span style="color:#38a169; font-style:italic; font-size:13px;">(Sem acréscimo adicional)</span>' 
-      : `<span style="color:#e53e3e; font-style:italic; font-size:13px;">+${taxasParcelas[parcela]}% = ${valorTotal.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>`;
-
-    parcelasHTML += `
-      <div style="background:${bgColor}; padding:8px 12px; margin:5px 0; border-left:4px solid ${borderColor}; display:flex; justify-content:space-between; align-items:center; gap:15px;">
-        <span style="font-weight:600; color:#667eea; font-size:15px; min-width:30px;">${parcela}x</span>
-        <span style="font-size:17px; font-weight:700; color:#2d3748; flex:1; text-align:center;">${valorParcela.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>
-        ${textoAcrescimo}
-      </div>
-    `;
-  }
-  parcelasHTML += `</div>`;
-
-  const conteudo = `
-    <div style="font-family:Arial,sans-serif; padding:40px; background:white; color:#333; line-height:1.6; max-width:700px; margin:0 auto;">
-      <div style="text-align:center; margin-bottom:25px; padding-bottom:15px; border-bottom:3px solid #667eea;">
-        <h1 style="color:#667eea; margin:0; font-size:32px;">🎹 LL SAMPLES 🎹</h1>
-        <h2 style="color:#764ba2; margin:10px 0 0 0; font-size:18px;">🌟 ORÇAMENTO ESPECIAL – ${qtdSamples} SAMPLE${qtdSamples>1?"S":""}</h2>
-      </div>
-
-      ${cliente ? `<div style="padding:10px; background:#f7fafc; margin:10px 0;"><strong>👤 Cliente:</strong> ${cliente}</div>` : ''}
-      ${contato ? `<div style="padding:10px; background:#f7fafc; margin:10px 0;"><strong>📲 Contato:</strong> ${contato}</div>` : ''}
-
-      <h3 style="color:#667eea; margin:20px 0 10px 0;">🗒️ SAMPLES SELECIONADOS:</h3>
-      ${samplesHTML}
-
-      ${(perc > 0 || val > 0) ? `<div style="padding:15px; margin:15px 0; background:#f7fafc; border-left:4px solid #667eea; font-size:16px;"><strong>💰 Valor Bruto:</strong> ${total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</div>` : ''}
-      ${descontoHTML}
-
-      <div style="padding:15px; margin:15px 0; background:#667eea; color:white; font-size:16px;">
-        <strong>💳 Total Final (Cartão c/ acréscimo 5,24%):</strong><br>
-        <span style="font-size:24px; font-weight:bold;">${valorCartao.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
-      </div>
-
-      ${parcelasHTML}
-
-      <div style="padding:15px; margin:15px 0; background:#d4fc79; color:#2d3748; font-size:16px;">
-        <strong>💵 Total Final (PIX):</strong><br>
-        <span style="font-size:24px; font-weight:bold;">${final.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
-      </div>
-
-      ${msgAdd ? `<div style="padding:15px; margin:15px 0; background:#f7fafc; border-left:4px solid #667eea; font-style:italic;">${msgAdd}</div>` : ''}
-
-      <div style="text-align:center; margin-top:30px; padding-top:15px; border-top:1px solid #ddd; color:#999; font-size:11px;">
-        <p style="margin:5px 0;">⚡ LL SAMPLES ⚡ | 🎹 Obrigado pela compra! | 👊🏻 @llsamples_</p>
-        <p style="margin:5px 0;">Orçamento gerado em ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}</p>
-      </div>
-    </div>
-  `;
-
-  // Cria elemento temporário
-  const elemento = document.createElement('div');
-  elemento.innerHTML = conteudo;
-  elemento.style.backgroundColor = 'white';
-  elemento.style.margin = '0';
-  elemento.style.padding = '0';
-  document.body.appendChild(elemento);
-
-  const opt = {
-    margin: 0,
-    filename: `Orcamento_Continuo_${Date.now()}.pdf`,
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { 
-      scale: 2,
-      useCORS: true,
-      letterRendering: true,
-      scrollY: 0,
-      scrollX: 0
-    },
-    jsPDF: { 
-      unit: 'px', 
-      format: [elemento.offsetWidth, elemento.offsetHeight],
-      orientation: 'portrait',
-      compress: true
-    },
-    pagebreak: { mode: 'avoid-all' }
-  };
-
-  html2pdf().set(opt).from(elemento).save().finally(() => {
-    document.body.removeChild(elemento);
-    alert("✅ PDF contínuo com parcelas gerado!");
-  });
-}
 
 
 function gerarMensagem() {
@@ -1366,11 +928,12 @@ https://chat.whatsapp.com/KSSYxQZRanb5OyhRqwgHs6`;
   const descontoHTML = descontoTexto ? `<p class='desconto-texto'>${descontoTexto}</p>` : "";
   const logoHTML = logoSrc ? `<div style="text-align:center; margin-bottom:20px;"><img src="${logoSrc}" alt="Logo" style="height:80px;"></div>` : "";
 
-document.getElementById("previewArea").innerHTML = `
+ document.getElementById("previewArea").innerHTML = `
     ${logoHTML}
     <div style="text-align:center;">
       <h2 style="color:#667eea; margin:10px 0; font-size:2em; border:none;">🎹 LL SAMPLES 🎹</h2>
     </div>
+
     <h3 style="text-align:center; margin-top:0; color:#764ba2; font-weight:600;">🌟 ORÇAMENTO ESPECIAL – ${qtdSamples} SAMPLE${qtdSamples>1?"S":""}</h3>
     <hr style="border:2px solid #667eea; margin:20px 0;">
     ${cliente?`<p style="padding:10px; background:#f7fafc; border-radius:8px; margin:10px 0;"><strong>👤 Cliente:</strong> ${cliente}</p>`:""}
@@ -1381,20 +944,11 @@ document.getElementById("previewArea").innerHTML = `
     </div>
     ${(perc > 0 || val > 0) ? `<p class="total">💰 Valor Bruto: ${total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</p>` : ""}
     ${descontoHTML}
-    <p class="valor-final" style="background: #667eea; color:white;">💳 Total Final (Cartão c/ acréscimo): <strong>${(final * 1.0524).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</strong></p>
-    ${gerarHTMLParcelas(final)}
+    <p class="valor-final" style="background: #667eea; color:white;">💳 Total Final (Cartão c/ acréscimo): <strong>${(final * 1.06).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</strong></p>
     <p class="valor-final">💵 Total Final (PIX): <strong>${final.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</strong></p>
     ${msgAdd?`<p style="padding:15px; background:#f7fafc; border-radius:8px; font-style:italic; margin-top:15px;">${msgAdd}</p>`:""}
     <hr style="margin:30px 0; border:1px solid #e2e8f0;">
     <pre id="mensagemPronta" style="background:#f7fafc; padding:20px; border-radius:10px; border-left:4px solid #667eea;">${msg}</pre>`;
-
-  // Reset do estado das parcelas
-  parcelasVisiveis = false;
-  const btnParcelas = document.querySelector('button[onclick="toggleParcelas()"]');
-  if (btnParcelas) {
-    btnParcelas.textContent = '💳 Mostrar Parcelas';
-  }
-
 }
 
 
@@ -1613,10 +1167,9 @@ const linkHTML = incluirLinks ? `<div style="color:#667eea; font-size:16px; marg
       ${(perc > 0 || val > 0) ? `<div style="padding:15px; margin:15px 0; background:#f7fafc; border-left:4px solid #667eea; font-size:16px;"><strong>💰 Valor Bruto:</strong> ${total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</div>` : ''}
       ${descontoHTML}
       <div style="padding:15px; margin:15px 0; background:#667eea; color:white; font-size:16px;">
-        <strong>💳 Total Final (Cartão c/ acréscimo 5,24%):</strong><br>
-        <span style="font-size:24px; font-weight:bold;">${(final * 1.0524).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
+        <strong>💳 Total Final (Cartão c/ acréscimo 6%):</strong><br>
+        <span style="font-size:24px; font-weight:bold;">${(final * 1.06).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
       </div>
-	     ${gerarHTMLParcelasPDF(final)}
       <div style="padding:15px; margin:15px 0; background:#d4fc79; color:#2d3748; font-size:16px;">
         <strong>💵 Total Final (PIX):</strong><br>
         <span style="font-size:24px; font-weight:bold;">${final.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
@@ -1628,40 +1181,6 @@ const linkHTML = incluirLinks ? `<div style="color:#667eea; font-size:16px; marg
     </div>
   `;
 }
-
-function gerarHTMLParcelasPDF(valorFinal) {
-  const valorCartao = valorFinal * 1.0524;
-  let html = `
-    <div style="margin:20px 0; padding:15px; background:#f7fafc; border:2px solid #667eea; border-radius:10px;">
-      <h3 style="color:#667eea; text-align:center; margin:0 0 15px 0; font-size:18px;">💳 SIMULAÇÃO DE PARCELAMENTO NO CARTÃO</h3>
-  `;
-
-  for (let parcela = 1; parcela <= 12; parcela++) {
-    const taxaDecimal = taxasParcelas[parcela] / 100;
-    const valorComJuros = valorCartao * (1 + taxaDecimal);
-    const valorParcela = valorComJuros / parcela;
-    const valorTotal = valorParcela * parcela;
-
-    const bgColor = parcela === 1 ? '#d4fc79' : 'white';
-    const borderColor = parcela === 1 ? '#38a169' : '#e2e8f0';
-
-    const textoAcrescimo = parcela === 1 
-      ? '<span style="color:#38a169; font-style:italic;">(Sem acréscimo adicional)</span>' 
-      : `<span style="color:#e53e3e; font-style:italic;">+${taxasParcelas[parcela]}% = ${valorTotal.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>`;
-
-    html += `
-      <div style="background:${bgColor}; padding:10px; margin:5px 0; border-left:4px solid ${borderColor}; display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-weight:600; color:#667eea; font-size:16px;">${parcela}x</span>
-        <span style="font-size:18px; font-weight:700; color:#2d3748;">${valorParcela.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>
-        <span style="font-size:14px;">${textoAcrescimo}</span>
-      </div>
-    `;
-  }
-
-  html += `</div>`;
-  return html;
-}
-
 
 function salvarPDF() {
   const conteudo = gerarConteudoPDF(true, false);
