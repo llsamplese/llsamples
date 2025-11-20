@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LL Samples Links - Gerador de Orçamentos</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+<link href="./LL Samples Links - Gerador de Orçamentos_files/css2" rel="stylesheet">
+<script src="./LL Samples Links - Gerador de Orçamentos_files/html2pdf.bundle.min.js.download"></script>
 
 <style>
     /* Reset básico */
@@ -14,6 +13,7 @@
         padding: 0;
         box-sizing: border-box;
     }
+
     /* Paleta de Cores:
         Amarelo Principal (um pouco mais escuro que #FFD700): #FFC107 (Amber)
         Amarelo para detalhes/highlights: #FFD700 (Gold)
@@ -22,6 +22,7 @@
         Cinza para texto secundário: #B0BEC5 (Light Blue Grey) ou #757575 (Grey)
         Cinza para elementos internos: #3A3A3A, #424242
     */
+
     body {
         font-family: 'Inter', 'Segoe UI', sans-serif;
         display: flex;
@@ -30,6 +31,7 @@
         color: #E0E0E0; /* Cor de texto padrão para o body (se houver texto solto) */
         min-height: 100vh;
     }
+
     .container {
         display: flex;
         width: 100%;
@@ -37,6 +39,7 @@
         gap: 20px;
         padding: 20px;
     }
+
     .form-panel {
         width: 35%;
         background: #212121; /* Fundo preto para o painel do formulário */
@@ -47,6 +50,7 @@
         animation: slideInLeft 0.5s ease;
         color: #E0E0E0; /* Texto claro dentro do painel */
     }
+
     .preview-panel {
         flex: 1;
         padding: 30px;
@@ -55,8 +59,9 @@
         box-shadow: 0 20px 60px rgba(0,0,0,0.5); /* Sombra mais escura */
         overflow-y: auto;
         animation: slideInRight 0.5s ease;
-        color: #2c3e50; /* Texto claro dentro do painel */
+        color: #2c3e50; /* Alterado para texto claro, para combinar com o tema dark */
     }
+
     @keyframes slideInLeft {
         from {
             opacity: 0;
@@ -67,6 +72,7 @@
             transform: translateX(0);
         }
     }
+
     @keyframes slideInRight {
         from {
             opacity: 0;
@@ -77,6 +83,7 @@
             transform: translateX(0);
         }
     }
+
     h2 {
         margin-top: 0;
         color: #FFC107; /* Amarelo principal para títulos */
@@ -86,6 +93,7 @@
         letter-spacing: -0.5px;
         text-align: center;
     }
+
     .logo-box {
         display: flex;
         align-items: center;
@@ -96,14 +104,14 @@
         border-radius: 15px;
         box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* Sombra mais escura */
     }
+
     .logo-preview {
         height: 60px;
         width: auto;
-        /* Se a logo for preta, este filtro a deixará amarela.
-            Se a logo já for amarela, remova ou ajuste o filtro. */
         filter: invert(80%) sepia(100%) saturate(2000%) hue-rotate(350deg) brightness(100%) contrast(100%); /* Tenta deixar a logo amarela */
         display: block;
     }
+
     label {
         font-weight: 600;
         margin-top: 15px;
@@ -114,6 +122,7 @@
         letter-spacing: 0.5px;
         margin-bottom: 8px;
     }
+
     input, textarea {
         width: 100%;
         border: 2px solid #424242; /* Borda cinza escuro */
@@ -125,6 +134,7 @@
         background: #3A3A3A; /* Fundo cinza escuro para inputs/textareas */
         color: #E0E0E0; /* Texto claro */
     }
+
     input:focus, textarea:focus {
         outline: none;
         border-color: #FFC107; /* Borda amarela no foco */
@@ -132,14 +142,17 @@
         box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.3); /* Sombra amarela */
         transform: translateY(-2px);
     }
+
     .desconto-group {
         display: flex;
         gap: 15px;
         margin-top: 10px;
     }
+
     .desconto-group > div {
         flex: 1;
     }
+
     .sample-list {
         max-height: 320px;
         overflow-y: auto;
@@ -149,17 +162,21 @@
         background: #3A3A3A; /* Fundo cinza escuro para a lista de samples */
         margin-top: 10px;
     }
+
     .sample-list::-webkit-scrollbar {
         width: 8px;
     }
+
     .sample-list::-webkit-scrollbar-track {
         background: #212121; /* Fundo da barra de rolagem preto */
         border-radius: 10px;
     }
+
     .sample-list::-webkit-scrollbar-thumb {
         background: #FFC107; /* Cor do "polegar" da barra de rolagem amarelo */
         border-radius: 10px;
     }
+
     .sample-item {
         display: flex;
         align-items: center;
@@ -170,10 +187,12 @@
         transition: all 0.2s ease;
         cursor: pointer;
     }
+
     .sample-item:hover {
         background: #3A3A3A; /* Fundo um pouco mais claro no hover */
         transform: translateX(5px);
     }
+
     .sample-item input[type="checkbox"] {
         margin-right: 12px;
         width: 20px;
@@ -181,6 +200,7 @@
         cursor: pointer;
         accent-color: #FFC107; /* Cor do checkbox amarelo */
     }
+
     .sample-item label {
         margin: 0;
         cursor: pointer;
@@ -189,71 +209,78 @@
         text-transform: none;
         font-size: 0.95em;
     }
+
     button {
         padding: 12px 20px;
         border: none;
         border-radius: 10px;
         cursor: pointer;
         color: #212121; /* Texto preto padrão para botões */
-        margin-top: 12px;
-        margin-right: 8px;
         font-weight: 600;
         font-size: 14px;
         transition: all 0.3s ease;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Sombra mais escura */
+        width: 100%; /* Garante que os botões preencham a largura disponível nos grupos */
+        margin: 0; /* Remove margens padrão que podem causar desalinhamento */
     }
+
     button:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         filter: brightness(1.1); /* Leve brilho no hover */
     }
+
     button:active {
         transform: translateY(0);
     }
+
     .btn-generate {
         background: #FFC107; /* Amarelo principal para gerar */
     }
+
     .btn-copy {
         background: #FFD700; /* Amarelo mais claro para copiar */
     }
+
     .btn-clear {
         background: #424242; /* Cinza escuro para limpar */
         color: #E0E0E0; /* Texto claro */
     }
-    .btn-select {
-        background: #FFC107; /* Amarelo principal para selecionar */
-        color: #212121; /* Texto preto */
+
+    /* Removido .btn-select pois não é mais usado com a nova estrutura de botões */
+    /* .btn-select {
+        background: #FFC107;
+        color: #212121;
         width: 100%;
         margin-bottom: 10px;
-    }
+    } */
+
     .preview-panel h2 {
-        color: #FFC107; /* Amarelo principal para o título do preview */
+        color: #E0E0E0; /* Amarelo principal para o título do preview */
         border-bottom: 3px solid #FFC107; /* Borda amarela */
         padding-bottom: 10px;
         display: flex;
         align-items: center;
         gap: 10px;
     }
+
     #previewArea h2 {
         display: block !important;
         text-align: center !important;
         border-bottom: none !important;
     }
+
     #previewArea {
-        background: #3A3A3A; /* Fundo cinza escuro para a área de preview */
-        border-radius: 15px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        margin-top: 20px;
-        animation: fadeIn 0.5s ease;
-        color: #2c3e50; /* Texto claro dentro da preview */
+        color: #2c3e50; /* Garante que o texto dentro da previewArea seja claro */
     }
+
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
     }
+
     .total {
         font-weight: 700;
         font-size: 1.2em;
@@ -264,6 +291,7 @@
         border-left: 4px solid #FFC107; /* Borda amarela */
         color: #E0E0E0; /* Texto claro */
     }
+
     .valor-final {
         color: #FFD700; /* Amarelo mais claro para o valor final */
         font-weight: 700;
@@ -274,6 +302,7 @@
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
+
     .desconto-texto {
         color: #FFD700; /* Amarelo para o texto de desconto */
         font-weight: 600;
@@ -283,40 +312,105 @@
         border-radius: 8px;
         border-left: 4px solid #FFC107; /* Borda amarela */
     }
+
     .no-results {
         text-align: center;
         color: #B0BEC5; /* Cinza claro */
         font-style: italic;
         padding: 20px;
     }
+
+    /* Estilos para o novo layout de botões */
     .button-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas maiores */
+        gap: 15px; /* Espaçamento entre os grupos */
         margin-top: 20px;
     }
-    .button-grid button {
-        margin: 0;
+
+    .button-group {
+        display: flex;
+        flex-direction: column; /* Botões dentro do grupo empilhados verticalmente */
+        gap: 8px; /* Espaçamento entre os botões dentro de um grupo */
+        padding: 15px; /* Padding para separar visualmente os grupos */
+        background: #3A3A3A; /* Fundo cinza escuro para os grupos */
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        border: 1px solid #424242; /* Borda sutil para os grupos */
     }
-    /* --- INÍCIO DAS CORREÇÕES PARA MOBILE --- */
+
+    .button-group.main-action {
+        grid-column: 1 / -1; /* Ocupa as duas colunas */
+        background: #212121; /* Fundo mais escuro para o grupo principal */
+        border-color: #FFC107; /* Borda amarela para destaque */
+        padding: 10px;
+    }
+
+    .button-group.main-action .btn-generate {
+        font-size: 1.1em;
+        padding: 15px 20px;
+        font-weight: 700;
+    }
+
+    .button-group.secondary-actions {
+        grid-column: 1 / -1; /* Ocupa as duas colunas */
+        flex-direction: row; /* Botões lado a lado dentro deste grupo */
+        justify-content: space-around; /* Espaça os botões */
+        background: #212121;
+        border-color: #757575;
+    }
+
+    .button-group.secondary-actions button {
+        flex: 1; /* Faz com que os botões ocupem o espaço disponível igualmente */
+        margin: 0 5px; /* Pequeno espaçamento entre eles */
+    }
+
+    /* Estilos para os botões de gradiente */
+    .btn-gradient-green {
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); /* Gradiente verde */
+        color: #212121; /* Texto escuro para contraste */
+    }
+
+    .btn-gradient-green:hover {
+        filter: brightness(1.15);
+    }
+
+    .btn-gradient-pink {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); /* Gradiente rosa/vermelho */
+        color: #212121; /* Texto escuro para contraste */
+    }
+
+    .btn-gradient-pink:hover {
+        filter: brightness(1.15);
+    }
+
+    /* Media Queries para Responsividade */
     @media (max-width: 1024px) {
         .container {
-            flex-direction: column; /* Empilha os painéis verticalmente */
+            flex-direction: column; /* Coloca os painéis um abaixo do outro */
             padding: 15px;
-            gap: 15px; /* Ajusta o espaçamento entre os painéis */
+            gap: 15px; /* Ajusta o gap entre os painéis */
         }
         .form-panel {
             width: 100%; /* Ocupa a largura total */
-            margin-bottom: 0; /* Remove margem inferior extra */
+            margin-bottom: 0; /* Remove margem inferior, o gap do container já cuida */
         }
         .preview-panel {
             width: 100%; /* Ocupa a largura total */
-            margin-top: 0; /* Garante que não haja margem superior desnecessária */
+            animation: fadeIn 0.5s ease; /* Animação de fade-in para a preview */
         }
         .button-grid {
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Ajusta para 1 ou 2 colunas dependendo do espaço */
+            grid-template-columns: 1fr; /* Uma coluna para os grupos de botões em telas menores */
+        }
+        .button-group.secondary-actions {
+            flex-direction: column; /* Empilha os botões secundários em telas menores */
+            margin: 0; /* Remove margens laterais */
+        }
+        .button-group.secondary-actions button {
+            margin: 0; /* Remove margens laterais internas */
         }
     }
+
     @media (max-width: 768px) {
         body {
             font-size: 14px;
@@ -343,11 +437,7 @@
             padding: 10px 15px;
             font-size: 13px;
         }
-        .button-grid {
-            grid-template-columns: 1fr; /* Força uma única coluna em telas muito pequenas */
-        }
     }
-    /* --- FIM DAS CORREÇÕES PARA MOBILE --- */
 
     @media print {
         body * {
@@ -363,16 +453,19 @@
             width: 100%;
         }
     }
+
     a {
         color: #FFC107; /* Amarelo principal para links */
         text-decoration: none;
         font-weight: 600;
         transition: all 0.2s ease;
     }
+
     a:hover {
         color: #FFD700; /* Amarelo mais claro no hover */
         text-decoration: underline;
     }
+
     .form-section {
         margin-bottom: 25px;
         padding: 20px;
@@ -380,10 +473,12 @@
         border-radius: 12px;
         border: 2px solid #3A3A3A; /* Borda cinza escuro */
     }
+
     .form-section:hover {
         border-color: #FFC107; /* Borda amarela no hover */
         transition: all 0.3s ease;
     }
+
     .badge {
         display: inline-block;
         padding: 4px 12px;
@@ -394,36 +489,52 @@
         font-weight: 600;
         margin-left: 10px;
     }
+
     textarea {
         resize: vertical;
         min-height: 100px;
     }
+
     pre {
         white-space: pre-wrap;
         word-wrap: break-word;
         font-family: 'Inter', sans-serif;
         line-height: 1.6;
     }
+
     .btn-pdf {
-        background: #FFC107; /* Amarelo principal para o botão PDF */
-        color: #212121; /* Texto preto */
+        background: #424242; /* Cinza escuro para PDF, para diferenciar dos botões de cópia */
+        color: #E0E0E0; /* Texto claro */
     }
+    /* Ajuste para os botões PDF que eram amarelos, agora são cinza escuro */
+    .btn-pdf:not(.btn-gradient-green) {
+        background: #424242;
+        color: #E0E0E0;
+    }
+    .btn-pdf:not(.btn-gradient-green):hover {
+        background: #555555; /* Um pouco mais claro no hover */
+    }
+
+
     #pdfTemp {
         display: none;
     }
+
     .parcelas-container {
         margin: 20px 0;
         padding: 20px;
         background: #212121; /* Fundo preto para o container de parcelas */
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        display: none; /* Escondido por padrão */
+        display: none;
         color: #E0E0E0; /* Texto claro */
     }
+
     .parcelas-container.show {
         display: block;
         animation: slideDown 0.3s ease;
     }
+
     @keyframes slideDown {
         from {
             opacity: 0;
@@ -434,12 +545,14 @@
             transform: translateY(0);
         }
     }
+
     .parcelas-container h3 {
         color: #FFC107; /* Amarelo principal para o título das parcelas */
         text-align: center;
         margin: 0 0 15px 0;
         font-size: 1.3em;
     }
+
     .parcela-item {
         background: #3A3A3A; /* Fundo cinza escuro para cada item de parcela */
         padding: 12px 15px;
@@ -451,38 +564,44 @@
         transition: all 0.2s ease;
         color: #E0E0E0; /* Texto claro */
     }
+
     .parcela-item:hover {
         transform: translateX(5px);
         box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
+
     .parcela-item.destaque {
         background: #212121; /* Fundo preto para parcela em destaque */
         font-weight: 700;
         border-left: 4px solid #FFD700; /* Borda amarela mais clara */
         color: #FFD700; /* Texto amarelo para destaque */
     }
+
     .parcela-numero {
         font-weight: 600;
         color: #FFC107; /* Amarelo principal para o número da parcela */
         font-size: 1.1em;
     }
+
     .parcela-valor {
         font-size: 1.2em;
         font-weight: 700;
         color: #FFD700; /* Amarelo mais claro para o valor da parcela */
     }
+
     .parcela-juros {
         font-size: 0.85em;
         color: #B0BEC5; /* Cinza claro para juros */
         font-style: italic;
     }
 </style>
-</head>
+
+<link rel="stylesheet" href="chrome-extension://mdjbgnpehbhpibonmjjjbjaoechnlcaf/popup/fa.css"></head>
 <body>
 <div class="container">
   <div class="form-panel">
     <div class="logo-box">
-      <img id="logoPreview" 
+       <img id="logoPreview" 
       src="https://raw.githubusercontent.com/ciliocavalcante-design/imagesll/2f3f0447d9d7afa76f017257d899151e0b7468bb/Layer%205.png" 
       alt="Logo LL Samples" 
       class="logo-preview">
@@ -491,20 +610,20 @@
     <h2>⚡ LL Samples Links</h2>
     <div class="form-section">
       <label>👤 Cliente</label>
-      <input type="text" id="cliente" placeholder="Nome do cliente"/>
+      <input type="text" id="cliente" placeholder="Nome do cliente">
       <label>📱 Contato (WhatsApp / E-mail)</label>
-      <input type="text" id="contato" placeholder="(xx) xxxxx-xxxx / email"/>
+      <input type="text" id="contato" placeholder="(xx) xxxxx-xxxx / email">
     </div>
     <div class="form-section">
       <label>💰 Descontos</label>
       <div class="desconto-group">
         <div>
           <label>Desconto (%)</label>
-          <input type="number" id="descontoPerc" placeholder="0" min="0" max="100"/>
+          <input type="number" id="descontoPerc" placeholder="0" min="0" max="100">
         </div>
         <div>
           <label>Desconto (R$)</label>
-          <input type="number" id="descontoVal" placeholder="0" min="0"/>
+          <input type="number" id="descontoVal" placeholder="0" min="0">
         </div>
       </div>
     </div>
@@ -518,25 +637,268 @@ LL Metais"></textarea>
   <button class="btn-select" id="buscaMultipla" style="flex:1; margin:0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">🔍 Buscar e Selecionar</button>
 </div>
 
-      <div id="samplesContainer" class="sample-list"></div>
+      <div id="samplesContainer" class="sample-list"><div class="sample-item">
+      <input type="checkbox" value="0" id="sample_0">
+      <label for="sample_0">LL Guitarra Forró - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="1" id="sample_1">
+      <label for="sample_1">LL Pacote Produção Guilherme Silva - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="2" id="sample_2">
+      <label for="sample_2">LL Pacote Produção Arrocha - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="3" id="sample_3">
+      <label for="sample_3">LL Drums Luxúria - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="4" id="sample_4">
+      <label for="sample_4">LL Drums Forró Boys - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="5" id="sample_5">
+      <label for="sample_5">LL Drums Rey Vaqueiro - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="6" id="sample_6">
+      <label for="sample_6">LL Piano Romântico - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="7" id="sample_7">
+      <label for="sample_7">LL Acordeon Forro - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="8" id="sample_8">
+      <label for="sample_8">LL Pacote Produção Claudio Ney e Juliana - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="9" id="sample_9">
+      <label for="sample_9">LL Drums Claudio Ney e Juliana - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="10" id="sample_10">
+      <label for="sample_10">LL Drums Pablo - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="11" id="sample_11">
+      <label for="sample_11">LL Drums Safadao Vaquejada - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="12" id="sample_12">
+      <label for="sample_12">LL Violao Pop v3 - R$90.00</label></div><div class="sample-item">
+      <input type="checkbox" value="13" id="sample_13">
+      <label for="sample_13">LL Drums Thales Play - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="14" id="sample_14">
+      <label for="sample_14">LL Drums Flavio Pizada Quente - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="15" id="sample_15">
+      <label for="sample_15">LL Drums Forrozin Os Feras - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="16" id="sample_16">
+      <label for="sample_16">LL Pacote Producao Arrasta-Pe (Completo) - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="17" id="sample_17">
+      <label for="sample_17">LL Pacote Producao Arrasta-Pe (Acomp) - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="18" id="sample_18">
+      <label for="sample_18">LL Drums Arrasta-Pé v2 - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="19" id="sample_19">
+      <label for="sample_19">LL Drums Ronny Arrocha 2025 - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="20" id="sample_20">
+      <label for="sample_20">LL Drums Guilherme Silva - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="21" id="sample_21">
+      <label for="sample_21">LL Pacote Produção Nattan - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="22" id="sample_22">
+      <label for="sample_22">LL Keys Pagodao - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="23" id="sample_23">
+      <label for="sample_23">LL Bass Pagodao v2 - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="24" id="sample_24">
+      <label for="sample_24">LL Guitarra Pagodao v3 - R$80.00</label></div><div class="sample-item">
+      <input type="checkbox" value="25" id="sample_25">
+      <label for="sample_25">LL Drums Marcynho Batidao - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="26" id="sample_26">
+      <label for="sample_26">LL Bass Forro Romantico - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="27" id="sample_27">
+      <label for="sample_27">LL Guitarra Batidao Cliente - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="28" id="sample_28">
+      <label for="sample_28">LL Drums Leo Foguete - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="29" id="sample_29">
+      <label for="sample_29">LL Drums Seresta do Rasta - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="30" id="sample_30">
+      <label for="sample_30">LL Drums Desejo - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="31" id="sample_31">
+      <label for="sample_31">LL Drums Nattan Forró - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="32" id="sample_32">
+      <label for="sample_32">LL Baião Drums - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="33" id="sample_33">
+      <label for="sample_33">LL Drums Arrocha Safadão - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="34" id="sample_34">
+      <label for="sample_34">LL Bass Arrocha v2 – Seresta - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="35" id="sample_35">
+      <label for="sample_35">LL Guitarra Arrocha v2 – Seresta - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="36" id="sample_36">
+      <label for="sample_36">LL Drums Natanzinho Lima - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="37" id="sample_37">
+      <label for="sample_37">LL Drums Henry Freitas - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="38" id="sample_38">
+      <label for="sample_38">LL Lambada Drums - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="39" id="sample_39">
+      <label for="sample_39">LL Calypso Drums - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="40" id="sample_40">
+      <label for="sample_40">LL Ukulele Prime - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="41" id="sample_41">
+      <label for="sample_41">LL Arraia Drums - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="42" id="sample_42">
+      <label for="sample_42">LL Arrocha Drums v2 - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="43" id="sample_43">
+      <label for="sample_43">LL Forro Romantico Drums v2 - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="44" id="sample_44">
+      <label for="sample_44">LL Forrozao Drums v1.1 - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="45" id="sample_45">
+      <label for="sample_45">LL Forro Vaneirao Drums - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="46" id="sample_46">
+      <label for="sample_46">LL Violao Pop 6-8 - R$80.00</label></div><div class="sample-item">
+      <input type="checkbox" value="47" id="sample_47">
+      <label for="sample_47">LL Strings - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="48" id="sample_48">
+      <label for="sample_48">LL Acordeon Arrasta-Pe - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="49" id="sample_49">
+      <label for="sample_49">LL Violao Pop v2 - R$80.00</label></div><div class="sample-item">
+      <input type="checkbox" value="50" id="sample_50">
+      <label for="sample_50">LL Bass Pagode - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="51" id="sample_51">
+      <label for="sample_51">LL Bass Forrozao - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="52" id="sample_52">
+      <label for="sample_52">LL Acordeon Forrozao - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="53" id="sample_53">
+      <label for="sample_53">LL Guitarra Forrozao - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="54" id="sample_54">
+      <label for="sample_54">LL Bass Pagodao - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="55" id="sample_55">
+      <label for="sample_55">LL Guitarra Pagodão v2 - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="56" id="sample_56">
+      <label for="sample_56">LL Pagodao Rythm v2 - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="57" id="sample_57">
+      <label for="sample_57">LL Guitarra Axe v2 - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="58" id="sample_58">
+      <label for="sample_58">LL Bass Axé - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="59" id="sample_59">
+      <label for="sample_59">LL Axé Rythm v2 - R$80.00</label></div><div class="sample-item">
+      <input type="checkbox" value="60" id="sample_60">
+      <label for="sample_60">LL Cavaco Prime v2 - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="61" id="sample_61">
+      <label for="sample_61">LL Acordeon Vaneira - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="62" id="sample_62">
+      <label for="sample_62">LL Violao Pagode Samba - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="63" id="sample_63">
+      <label for="sample_63">LL Drums Manu Bahtidao - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="64" id="sample_64">
+      <label for="sample_64">LL Vaneira Drums - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="65" id="sample_65">
+      <label for="sample_65">LL Violão Pop - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="66" id="sample_66">
+      <label for="sample_66">LL Acordeon Arrocha - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="67" id="sample_67">
+      <label for="sample_67">LL Guitarra Calypso - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="68" id="sample_68">
+      <label for="sample_68">LL Drums Felipe Amorim - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="69" id="sample_69">
+      <label for="sample_69">LL Drums Zé Felipe - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="70" id="sample_70">
+      <label for="sample_70">LL Drums Mari Fernandez - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="71" id="sample_71">
+      <label for="sample_71">LL Bass Piseiro v2 - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="72" id="sample_72">
+      <label for="sample_72">LL Guitarra Piseiro v3 - R$80.00</label></div><div class="sample-item">
+      <input type="checkbox" value="73" id="sample_73">
+      <label for="sample_73">LL Pagode Drums e Percussion - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="74" id="sample_74">
+      <label for="sample_74">LL Violão Vaneira - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="75" id="sample_75">
+      <label for="sample_75">LL Iguinho e Lulinha Drums - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="76" id="sample_76">
+      <label for="sample_76">LL Bass Arrasta-Pe - R$40.00</label></div><div class="sample-item">
+      <input type="checkbox" value="77" id="sample_77">
+      <label for="sample_77">LL Metais v3 - R$80.00</label></div><div class="sample-item">
+      <input type="checkbox" value="78" id="sample_78">
+      <label for="sample_78">LL Forro Romantico Drums - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="79" id="sample_79">
+      <label for="sample_79">LL Violão Arrocha 1.5 (Re-Edition) - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="80" id="sample_80">
+      <label for="sample_80">LL Guitarra Arrasta-Pe - R$40.00</label></div><div class="sample-item">
+      <input type="checkbox" value="81" id="sample_81">
+      <label for="sample_81">LL Arrasta-Pe Drums 1.5 - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="82" id="sample_82">
+      <label for="sample_82">LL Metais 2.0 - R$80.00</label></div><div class="sample-item">
+      <input type="checkbox" value="83" id="sample_83">
+      <label for="sample_83">LL Arrocha Drums Nadson - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="84" id="sample_84">
+      <label for="sample_84">LL Arrocha Percussao - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="85" id="sample_85">
+      <label for="sample_85">LL Cavaco Prime - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="86" id="sample_86">
+      <label for="sample_86">LL Arrasta-Pe Drums - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="87" id="sample_87">
+      <label for="sample_87">LL Violao Arrocha - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="88" id="sample_88">
+      <label for="sample_88">LL Bass Arrocha - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="89" id="sample_89">
+      <label for="sample_89">LL Guitarra Arrocha - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="90" id="sample_90">
+      <label for="sample_90">LL Arrocha Drums - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="91" id="sample_91">
+      <label for="sample_91">LL Acordeon Piseiro 2.0 - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="92" id="sample_92">
+      <label for="sample_92">LL Piseiro Drums Summer - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="93" id="sample_93">
+      <label for="sample_93">LL Guitarra Piseiro 2.0 - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="94" id="sample_94">
+      <label for="sample_94">LL Guitarra Pagodão - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="95" id="sample_95">
+      <label for="sample_95">LL Pagodao Drums e Percussion - R$70.00</label></div><div class="sample-item">
+      <input type="checkbox" value="96" id="sample_96">
+      <label for="sample_96">LL Axé Drums - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="97" id="sample_97">
+      <label for="sample_97">LL Guitarra Axé - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="98" id="sample_98">
+      <label for="sample_98">LL Axé Percussão - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="99" id="sample_99">
+      <label for="sample_99">LL Piseiro Drums 2.0 - R$80.00</label></div><div class="sample-item">
+      <input type="checkbox" value="100" id="sample_100">
+      <label for="sample_100">LL Piseiro Drums 1.5 - R$80.00</label></div><div class="sample-item">
+      <input type="checkbox" value="101" id="sample_101">
+      <label for="sample_101">LL Pe de Serra Drums e Perc - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="102" id="sample_102">
+      <label for="sample_102">LL Acordeon Pé-de-Serra - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="103" id="sample_103">
+      <label for="sample_103">LL Guitarra Bregadeira - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="104" id="sample_104">
+      <label for="sample_104">LL Bregadeira Drums - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="105" id="sample_105">
+      <label for="sample_105">LL Percussao Piseiro - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="106" id="sample_106">
+      <label for="sample_106">LL Piseiro Bass - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="107" id="sample_107">
+      <label for="sample_107">LL Guitarra Piseiro - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="108" id="sample_108">
+      <label for="sample_108">LL Acordeon Piseiro - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="109" id="sample_109">
+      <label for="sample_109">LL WS Drums - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="110" id="sample_110">
+      <label for="sample_110">LL Piseiro Drums v1 - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="111" id="sample_111">
+      <label for="sample_111">LL Metais - R$60.00</label></div><div class="sample-item">
+      <input type="checkbox" value="112" id="sample_112">
+      <label for="sample_112">LL Sax v1.5 - R$60.00</label></div></div>
     </div>
     <div class="form-section">
       <label>💬 Mensagem adicional</label>
       <textarea id="mensagem" rows="4" placeholder="Ex: Obrigado pela compra!"></textarea>
     </div>
-  <div class="button-grid">
-  <button class="btn-generate" onclick="gerarMensagem()">✨ Gerar</button>
-  <button class="btn-copy" onclick="copiarMensagem()">📋 Copiar Tudo</button>
-    <button class="btn-copy" onclick="copiarParteCima()">⬆️ Copiar Topo</button>
-  <button class="btn-copy" onclick="copiarParteBaixo()">⬇️ Copiar Base</button>
-  <button class="btn-copy" onclick="copiarParteCimaComVideos()">🎥 Copiar c/ Vídeos</button>
-  <button class="btn-pdf" onclick="salvarPDF()">📄 PDF Completo</button>
-  <button class="btn-pdf" onclick="salvarPDFResumido()">📋 PDF Resumido</button>
-  <button class="btn-pdf" onclick="salvarPDFComLinks()">🔗 PDF c/ Links</button>
-  <button class="btn-clear" onclick="limparCampos()">🗑️ Limpar Tudo</button>
+<div class="button-grid">
+    <!-- Grupo de Ação Principal -->
+    <div class="button-group main-action">
+        <button class="btn-generate" onclick="gerarMensagem()">✨ Gerar Orçamento</button>
+    </div>
 
+    <!-- Grupo de Ações de Cópia -->
+    <div class="button-group copy-actions">
+        <button class="btn-copy" onclick="copiarMensagem()">📋 Copiar Tudo</button>
+        <button class="btn-copy" onclick="copiarParteCima()">⬆️ Orçamento</button>
+        <button class="btn-copy" onclick="copiarParteBaixo()">⬇️ Envio de Links</button>
+        <button class="btn-copy" onclick="copiarParteCimaComVideos()">🎥 Copiar Vídeos</button>
+    </div>
 
+    <!-- Grupo de Ações de PDF -->
+    <div class="button-group pdf-actions">
+        <button class="btn-pdf" onclick="salvarPDF()">📄 PDF Completo</button>
+        <button class="btn-pdf" onclick="salvarPDFResumido()">📋 PDF Resumido</button>
+        <button class="btn-pdf" onclick="salvarPDFComLinks()">🔗 PDF c/ Links</button>
+        <button class="btn-pdf btn-gradient-green" onclick="salvarPDFContinuo()">📜 PDF Contínuo c/ Parcelas</button>
+        <button class="btn-pdf btn-gradient-green" onclick="salvarPDFContinuomobile()">📱 PDF Contínuo Celular</button>
+    </div>
+
+    <!-- Grupo de Ações Secundárias -->
+    <div class="button-group secondary-actions">
+        <button class="btn-clear" onclick="limparCampos()">🗑️ Limpar Tudo</button>
+        <button class="btn-gradient-pink" onclick="toggleParcelas()">💳 Mostrar Parcelas</button>
+    </div>
 </div>
+
 
   </div>
   <div class="preview-panel">
@@ -550,6 +912,18 @@ LL Metais"></textarea>
 </div>
 	<div id="pdfTemp"></div>
 <script>
+
+   function normalizeString(str) {
+    let normalized = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    // Padronizar "vX" e "X.0" para "vX"
+    // Ex: "v2" e "2.0" se tornam "v2"
+    // Ex: "v3" e "3.0" se tornam "v3"
+    normalized = normalized.replace(/(\s|^)v(\d+)/g, '$1v$2'); // Garante que 'v2' seja 'v2'
+    normalized = normalized.replace(/(\s|^)(\d+)\.0/g, '$1v$2'); // Converte '2.0' para 'v2'
+    // Remover espaços extras que podem surgir após as substituições
+    return normalized.trim().replace(/\s+/g, ' ');
+}
+
 const rawData = `LL Guitarra Forró|https://we.tl/t-A4Ew2QUAJB|70
 LL Pacote Produção Guilherme Silva|https://we.tl/t-Tjxvc3Rd2F|70
 LL Pacote Produção Arrocha|https://we.tl/t-wZBxe3EY45|70
@@ -674,23 +1048,44 @@ let selectedSamples = new Set();
 const container = document.getElementById("samplesContainer");
 
 function renderSamples(filter="") {
-  container.innerHTML = "";
-  const filtered = samplesData.filter(s => s.nome.toLowerCase().includes(filter.toLowerCase()));
-  if (filtered.length === 0) {
-    container.innerHTML = "<p class='no-results'>Nenhum sample encontrado.</p>";
-    return;
-  }
-  filtered.forEach((s) => {
-    const globalIndex = samplesData.indexOf(s);
-    const div = document.createElement("div");
-    div.className = "sample-item";
-    const checked = selectedSamples.has(globalIndex) ? "checked" : "";
-    div.innerHTML = `
-      <input type="checkbox" value="${globalIndex}" ${checked} id="sample_${globalIndex}">
-      <label for="sample_${globalIndex}">${s.nome} - R$${s.valor.toFixed(2)}</label>`;
-    container.appendChild(div);
-  });
+    container.innerHTML = "";
+    const normalizedFilter = normalizeString(filter); // Normaliza o filtro de busca
+
+    const filtered = samplesData.filter(s => {
+        const normalizedSampleName = normalizeString(s.nome); // Normaliza o nome do sample
+
+        // Se o filtro contém uma versão específica (ex: "v3"), busca exata pela versão
+        const filterVersionMatch = normalizedFilter.match(/v(\d+(\.\d+)?)$/);
+        const sampleVersionMatch = normalizedSampleName.match(/v(\d+(\.\d+)?)$/);
+
+        if (filterVersionMatch) {
+            // Se o filtro tem versão, busca exata pela versão e pelo nome base
+            const filterBaseName = normalizedFilter.replace(/v(\d+(\.\d+)?)$/, '').trim();
+            const sampleBaseName = normalizedSampleName.replace(/v(\d+(\.\d+)?)$/, '').trim();
+
+            return sampleBaseName.includes(filterBaseName) && filterVersionMatch[0] === (sampleVersionMatch ? sampleVersionMatch[0] : '');
+        } else {
+            // Se o filtro NÃO tem versão, busca por qualquer versão ou sem versão
+            return normalizedSampleName.includes(normalizedFilter);
+        }
+    });
+
+    if (filtered.length === 0) {
+        container.innerHTML = "<p class='no-results'>Nenhum sample encontrado.</p>";
+        return;
+    }
+    filtered.forEach((s) => {
+        const globalIndex = samplesData.indexOf(s);
+        const div = document.createElement("div");
+        div.className = "sample-item";
+        const checked = selectedSamples.has(globalIndex) ? "checked" : "";
+        div.innerHTML = `
+            <input type="checkbox" value="${globalIndex}" ${checked} id="sample_${globalIndex}">
+            <label for="sample_${globalIndex}">${s.nome} - R$${s.valor.toFixed(2)}</label>`;
+        container.appendChild(div);
+    });
 }
+
 
 
 
@@ -815,71 +1210,449 @@ const videosDemo = {
   "LL Drums Luxúria": "https://www.youtube.com/watch?v=n8eJ6Q1Nq9A",
   "LL Pacote Produção Arrocha": "https://www.youtube.com/watch?v=YIuHRLtGSjU",
   "LL Pacote Produção Guilherme Silva": "https://www.youtube.com/watch?v=GF9Vlq8qOys",
+  "LL Bass Forro Romantico": "https://youtu.be/L8wgsiVASb0?si=K_wrF7f1Y-wC6x5A",
+  "LL Forrozao Drums v1.1": "https://www.youtube.com/watch?v=jEp5ZXmy0ik",
+  "LL Acordeon Forrozao": "https://www.youtube.com/watch?v=SOjvoOpe6jA&list=RDSOjvoOpe6jA&start_radio=1",
+  "LL Arrocha Drums Nadson": "https://www.youtube.com/watch?v=RPNK-7NEPKw&list=RDRPNK-7NEPKw&start_radio=1",
+  "LL Arrasta-Pe Drums": "https://www.youtube.com/watch?v=nAOiYoV1Y6U&list=RDnAOiYoV1Y6U&start_radio=1",
+  "LL Guitarra Piseiro 2.0": "https://www.youtube.com/watch?v=ElgxzAuavdY&list=RDElgxzAuavdY&start_radio=1",
+  "LL Guitarra Pagodão": "https://www.youtube.com/watch?v=vv-1QI_RbKM&pp=ygUTTEwgR3VpdGFycmEgUGFnb2Rhb9IHCQkICgGHKiGM7w%3D%3D",
+  "LL Axé Drums": "https://www.youtube.com/watch?v=Yzg5m4ZJw1g&t=20s",
+  "LL Guitarra Axé": "https://www.youtube.com/watch?v=NkO61zkS-C8&list=RDNkO61zkS-C8&start_radio=1",
+  "LL Axé Percussão": "https://www.youtube.com/watch?v=9rbJgipJmV0&list=RD9rbJgipJmV0&start_radio=1",
+  "LL Piseiro Drums 2.0": "https://www.youtube.com/watch?v=I0gpLLrcGe4&list=RDI0gpLLrcGe4&start_radio=1",
   "LL Guitarra Forró": "https://www.youtube.com/watch?v=76wm2WOucCs"
 };
 
 function buscarESelecionarMultiplos() {
-  const texto = document.getElementById("sampleSearch").value;
-  const linhas = texto.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    const texto = document.getElementById("sampleSearch").value;
+    const linhas = texto.split('\n').map(l => l.trim()).filter(l => l.length > 0);
 
-  if (linhas.length === 0) {
-    alert("⚠️ Digite os nomes dos samples (um por linha)!");
+    if (linhas.length === 0) {
+        alert("⚠️ Digite os nomes dos samples (um por linha)!");
+        return;
+    }
+
+    let encontrados = 0;
+    let naoEncontrados = [];
+
+    selectedSamples.clear(); // Limpa a seleção anterior antes de buscar
+
+    linhas.forEach(busca => {
+        const normalizedBusca = normalizeString(busca); // Normaliza a busca do usuário
+        let achouParaEstaBusca = false;
+
+        // Extrai a versão da busca, se houver (ex: "v3", "v2")
+        const buscaVersionMatch = normalizedBusca.match(/v(\d+(\.\d+)?)$/);
+        const buscaBaseName = buscaVersionMatch ? normalizedBusca.replace(buscaVersionMatch[0], '').trim() : normalizedBusca;
+
+        samplesData.forEach((sample, index) => {
+            const normalizedSampleName = normalizeString(sample.nome); // Normaliza o nome do sample
+
+            // Extrai a versão do nome do sample, se houver
+            const sampleVersionMatch = normalizedSampleName.match(/v(\d+(\.\d+)?)$/);
+            const sampleBaseName = sampleVersionMatch ? normalizedSampleName.replace(sampleVersionMatch[0], '').trim() : normalizedSampleName;
+
+            let match = false;
+
+            if (buscaVersionMatch) {
+                // Se a busca tem uma versão (ex: "LL Guitarra Piseiro v3")
+                // Deve corresponder ao nome base E à versão exata
+                if (sampleBaseName.includes(buscaBaseName) && (sampleVersionMatch && sampleVersionMatch[0] === buscaVersionMatch[0])) {
+                    match = true;
+                }
+            } else {
+                // Se a busca NÃO tem uma versão (ex: "LL Guitarra Piseiro")
+                // Deve corresponder ao nome base, ignorando a versão do sample
+                if (normalizedSampleName.includes(normalizedBusca)) {
+                    match = true;
+                }
+            }
+
+            if (match) {
+                selectedSamples.add(index);
+                achouParaEstaBusca = true;
+            }
+        });
+
+        if (!achouParaEstaBusca) {
+            naoEncontrados.push(busca);
+        } else {
+            encontrados++;
+        }
+    });
+
+    renderSamples(document.getElementById("sampleSearch").value); // Renderiza os samples com o filtro atual para mostrar os selecionados
+
+    let mensagem = `✅ ${encontrados} sample(s) encontrado(s) e selecionado(s)!`;
+    if (naoEncontrados.length > 0) {
+        mensagem += `\n\n⚠️ Não encontrados:\n${naoEncontrados.join('\n')}`;
+    }
+
+    alert(mensagem);
+}
+
+
+// Taxas de parcelamento (aplicadas SOBRE o valor com 5,24% do cartão)
+const taxasParcelas = {
+  1: 0,      // Sem acréscimo adicional (só os 5,24% do cartão)
+  2: 9.64,
+  3: 11.23,
+  4: 11.36,
+  5: 14.31,
+  6: 14.32,
+  7: 16.72,
+  8: 16.73,
+  9: 19.69,
+  10: 20.65,
+  11: 20.66,
+  12: 22.11
+};
+
+let parcelasVisiveis = false;
+
+function toggleParcelas() {
+  const container = document.querySelector('.parcelas-container');
+  const btn = event.target;
+
+  if (!container) {
+    alert("⚠️ Gere o orçamento primeiro!");
     return;
   }
 
-  let encontrados = 0;
-  let naoEncontrados = [];
+  parcelasVisiveis = !parcelasVisiveis;
 
-  selectedSamples.clear();
-
-  linhas.forEach(busca => {
-    let achou = false;
-    const buscaLimpa = busca.toLowerCase().trim();
-
-    samplesData.forEach((sample, index) => {
-      const nomeLimpo = sample.nome.toLowerCase();
-
-      // Busca bidirecional: verifica se um contém o outro
-      if (nomeLimpo.includes(buscaLimpa) || buscaLimpa.includes(nomeLimpo)) {
-        selectedSamples.add(index);
-        achou = true;
-      } else {
-        // Busca por palavras-chave (ignora versões)
-        const palavrasBusca = buscaLimpa.split(' ').filter(p => p.length > 2);
-        const palavrasNome = nomeLimpo.split(' ').filter(p => p.length > 2);
-
-        // Se pelo menos 80% das palavras coincidem, considera match
-        let matches = 0;
-        palavrasBusca.forEach(palavra => {
-          if (palavrasNome.some(p => p.includes(palavra) || palavra.includes(p))) {
-            matches++;
-          }
-        });
-
-        if (matches >= palavrasBusca.length * 0.8) {
-          selectedSamples.add(index);
-          achou = true;
-        }
-      }
-    });
-
-    if (achou) {
-      encontrados++;
-    } else {
-      naoEncontrados.push(busca);
-    }
-  });
-
-  renderSamples();
-
-  let mensagem = `✅ ${encontrados} sample(s) encontrado(s) e selecionado(s)!`;
-  if (naoEncontrados.length > 0) {
-    mensagem += `\n\n⚠️ Não encontrados:\n${naoEncontrados.join('\n')}`;
+  if (parcelasVisiveis) {
+    container.classList.add('show');
+    btn.textContent = '💳 Ocultar Parcelas';
+  } else {
+    container.classList.remove('show');
+    btn.textContent = '💳 Mostrar Parcelas';
   }
-
-  alert(mensagem);
 }
 
+function gerarHTMLParcelas(valorFinal) {
+  // Valor com os 5,24% do cartão (base para o parcelamento)
+  const valorCartao = valorFinal * 1.0524;
+
+  let html = `
+    <div class="parcelas-container">
+      <h3>💳 SIMULAÇÃO DE PARCELAMENTO NO CARTÃO</h3>
+  `;
+
+  for (let parcela = 1; parcela <= 12; parcela++) {
+    // Calcula o valor com juros de parcelamento sobre o valor do cartão
+    const taxaDecimal = taxasParcelas[parcela] / 100;
+    const valorComJuros = valorCartao * (1 + taxaDecimal);
+    const valorParcela = valorComJuros / parcela;
+    const valorTotal = valorParcela * parcela;
+
+    const classeDestaque = parcela === 1 ? ' destaque' : '';
+    const textoAcrescimo = parcela === 1 
+      ? '(Sem acréscimo adicional)' 
+      : `<span class="parcela-juros">+${taxasParcelas[parcela]}% = ${valorTotal.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>`;
+
+    html += `
+      <div class="parcela-item${classeDestaque}">
+        <span class="parcela-numero">${parcela}x</span>
+        <span class="parcela-valor">${valorParcela.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>
+        <span>${textoAcrescimo}</span>
+      </div>
+    `;
+  }
+
+  html += `</div>`;
+  return html;
+}
+
+function salvarPDFContinuo() {
+  const cliente = document.getElementById("cliente").value.trim();
+  const contato = document.getElementById("contato").value.trim();
+  const perc = parseFloat(document.getElementById("descontoPerc").value) || 0;
+  const val = parseFloat(document.getElementById("descontoVal").value) || 0;
+  const msgAdd = document.getElementById("mensagem").value.trim();
+  const qtdSamples = selectedSamples.size;
+
+  if (qtdSamples === 0) {
+    alert("⚠️ Selecione ao menos um sample!");
+    return;
+  }
+
+  let total = 0;
+  let samplesHTML = '';
+
+  selectedSamples.forEach(i => {
+    const s = samplesData[i];
+    samplesHTML += `
+      <div style="padding:8px 10px; margin:5px 0; background:#f5f5f5; border-left:4px solid #667eea;">
+        <strong>• ${s.nome}</strong> <span style="float:right;">R$ ${s.valor.toFixed(2)}</span>
+      </div>`;
+    total += s.valor;
+  });
+
+  const descPerc = total * (perc / 100);
+  const descTotal = descPerc + val;
+  const final = total - descTotal;
+
+  let descontoHTML = '';
+  if (perc > 0 || val > 0) {
+    const valorPerc = perc > 0 ? total * (perc / 100) : 0;
+    descontoHTML = `
+      <div style="padding:12px; margin:15px 0; background:#ffe5e5; border-left:4px solid #e53e3e;">
+        <strong style="color:#e53e3e;">🔻 Desconto Aplicado:</strong><br>
+        ${perc > 0 ? `• Percentual: ${perc}% = ${valorPerc.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}<br>` : ''}
+        ${val > 0 ? `• Valor fixo: ${val.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}` : ''}
+      </div>`;
+  }
+
+  // Gerar HTML das parcelas para PDF
+  const valorCartao = final * 1.0524;
+  let parcelasHTML = `
+    <div style="margin:20px 0; padding:15px; background:#f7fafc; border:2px solid #667eea; border-radius:10px;">
+      <h3 style="color:#667eea; text-align:center; margin:0 0 15px 0; font-size:18px;">💳 SIMULAÇÃO DE PARCELAMENTO NO CARTÃO</h3>
+  `;
+
+  for (let parcela = 1; parcela <= 12; parcela++) {
+    const taxaDecimal = taxasParcelas[parcela] / 100;
+    const valorComJuros = valorCartao * (1 + taxaDecimal);
+    const valorParcela = valorComJuros / parcela;
+    const valorTotal = valorParcela * parcela;
+
+    const bgColor = parcela === 1 ? '#d4fc79' : 'white';
+    const borderColor = parcela === 1 ? '#38a169' : '#e2e8f0';
+
+    const textoAcrescimo = parcela === 1 
+      ? '<span style="color:#38a169; font-style:italic;">(Sem acréscimo adicional)</span>' 
+      : `<span style="color:#e53e3e; font-style:italic;">+${taxasParcelas[parcela]}% = ${valorTotal.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>`;
+
+    parcelasHTML += `
+      <div style="background:${bgColor}; padding:10px; margin:5px 0; border-left:4px solid ${borderColor};">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+          <span style="font-weight:600; color:#667eea; font-size:16px; min-width:30px;">${parcela}x</span>
+          <span style="font-size:18px; font-weight:700; color:#2d3748; min-width:100px;">${valorParcela.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>
+          <span style="font-size:14px; flex:1; text-align:right;">${textoAcrescimo}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  parcelasHTML += `</div>`;
+
+  const conteudo = `
+    <div style="font-family:Arial,sans-serif; padding:40px 60px; background:white; color:#333; line-height:1.6; max-width:750px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:25px; padding-bottom:15px; border-bottom:3px solid #667eea;">
+        <h1 style="color:#E0E0E0; margin:0; font-size:32px;">🎹 LL SAMPLES 🎹</h1>
+        <h2 style="color:#E0E0E0; margin:10px 0 0 0; font-size:18px;">🌟 ORÇAMENTO ESPECIAL – ${qtdSamples} SAMPLE${qtdSamples>1?"S":""}</h2>
+      </div>
+
+      ${cliente ? `<div style="padding:10px; background:#f7fafc; margin:10px 0;"><strong>👤 Cliente:</strong> ${cliente}</div>` : ''}
+      ${contato ? `<div style="padding:10px; background:#f7fafc; margin:10px 0;"><strong>📲 Contato:</strong> ${contato}</div>` : ''}
+
+      <h3 style="color:#E0E0E0; margin:20px 0 10px 0;">🗒️ SAMPLES SELECIONADOS:</h3>
+      ${samplesHTML}
+
+      ${(perc > 0 || val > 0) ? `<div style="padding:15px; margin:15px 0; background:#f7fafc; border-left:4px solid #667eea; font-size:16px;"><strong>💰 Valor Bruto:</strong> ${total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</div>` : ''}
+      ${descontoHTML}
+
+      <div style="padding:15px; margin:15px 0; background:#667eea; color:white; font-size:16px; border-radius:8px;">
+        <strong>💳 Total Final (Cartão c/ acréscimo 5,24%):</strong><br>
+        <span style="font-size:24px; font-weight:bold;">${(final * 1.0524).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
+      </div>
+
+      ${parcelasHTML}
+
+      <div style="padding:15px; margin:15px 0; background:#d4fc79; color:#2d3748; font-size:16px; border-radius:8px;">
+        <strong>💵 Total Final (PIX):</strong><br>
+        <span style="font-size:24px; font-weight:bold;">${final.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
+      </div>
+
+      ${msgAdd ? `<div style="padding:15px; background:#f7fafc; border-left:4px solid #667eea; margin-top:15px;"><p style="margin:0; font-style:italic; color:#666;">${msgAdd}</p></div>` : ''}
+
+      <hr style="margin:25px 0; border:none; border-top:2px solid #ddd;">
+      <div style="background:#f7fafc; padding:15px; border-left:4px solid #667eea;">
+        <h4 style="color:#667eea; margin:0 0 10px 0;">📝 Informações Importantes:</h4>
+        <p style="margin:5px 0;">🔗 Os links para download estão disponíveis após a confirmação do pagamento.</p>
+        <p style="margin:15px 0 5px 0;"><strong>⚡ LL SAMPLES ⚡</strong></p>
+        <p style="margin:5px 0;">🎹 Obrigado pela compra! | 👊🏻 Instagram: @llsamples_</p>
+      </div>
+
+      <div style="text-align:center; margin-top:30px; padding-top:15px; border-top:1px solid #ddd; color:#999; font-size:11px;">
+        <p>Orçamento gerado em ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}</p>
+      </div>
+    </div>
+  `;
+
+  const elemento = document.createElement('div');
+  elemento.innerHTML = conteudo;
+  elemento.style.width = '100%';
+  elemento.style.backgroundColor = 'white';
+  document.body.appendChild(elemento);
+
+  const opt = {
+    margin: 0,
+    filename: `Orcamento_Parcelas_${Date.now()}.pdf`,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { 
+      scale: 2,
+      useCORS: true,
+      letterRendering: true
+    },
+    jsPDF: { 
+      unit: 'mm', 
+      format: [210, 297 * 3], // Aumenta o tamanho para caber tudo sem quebra
+      orientation: 'portrait',
+      compress: true
+    },
+    pagebreak: { mode: 'avoid-all' }
+  };
+
+  html2pdf().set(opt).from(elemento).save().finally(() => {
+    document.body.removeChild(elemento);
+    alert("✅ PDF com Parcelas gerado!");
+  });
+}
+
+function salvarPDFContinuomobile() {
+  const cliente = document.getElementById("cliente").value.trim();
+  const contato = document.getElementById("contato").value.trim();
+  const perc = parseFloat(document.getElementById("descontoPerc").value) || 0;
+  const val = parseFloat(document.getElementById("descontoVal").value) || 0;
+  const msgAdd = document.getElementById("mensagem").value.trim();
+  const qtdSamples = selectedSamples.size;
+
+  if (qtdSamples === 0) {
+    alert("⚠️ Selecione ao menos um sample!");
+    return;
+  }
+
+  let total = 0;
+  let samplesHTML = '';
+
+  selectedSamples.forEach(i => {
+    const s = samplesData[i];
+    samplesHTML += `
+      <div style="padding:10px; margin:8px 0; background:#f5f5f5; border-left:4px solid #667eea; display:flex; justify-content:space-between;">
+        <strong>• ${s.nome}</strong>
+        <span>R$ ${s.valor.toFixed(2)}</span>
+      </div>`;
+    total += s.valor;
+  });
+
+  const descPerc = total * (perc / 100);
+  const descTotal = descPerc + val;
+  const final = total - descTotal;
+  const valorCartao = final * 1.0524;
+
+  let descontoHTML = '';
+  if (perc > 0 || val > 0) {
+    const valorPerc = perc > 0 ? total * (perc / 100) : 0;
+    descontoHTML = `
+      <div style="padding:12px; margin:15px 0; background:#ffe5e5; border-left:4px solid #e53e3e;">
+        <strong style="color:#e53e3e;">🔻 Desconto Aplicado:</strong><br>
+        ${perc > 0 ? `• Percentual: ${perc}% = ${valorPerc.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}<br>` : ''}
+        ${val > 0 ? `• Valor fixo: ${val.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}` : ''}
+      </div>`;
+  }
+
+  // Gera HTML das parcelas
+  let parcelasHTML = `
+    <div style="margin:20px 0; padding:15px; background:#f7fafc; border:2px solid #667eea; border-radius:10px;">
+      <h3 style="color:#667eea; text-align:center; margin:0 0 15px 0; font-size:18px;">💳 SIMULAÇÃO DE PARCELAMENTO NO CARTÃO</h3>
+  `;
+
+  for (let parcela = 1; parcela <= 12; parcela++) {
+    const taxaDecimal = taxasParcelas[parcela] / 100;
+    const valorComJuros = valorCartao * (1 + taxaDecimal);
+    const valorParcela = valorComJuros / parcela;
+    const valorTotal = valorParcela * parcela;
+
+    const bgColor = parcela === 1 ? '#d4fc79' : 'white';
+    const borderColor = parcela === 1 ? '#38a169' : '#e2e8f0';
+
+    const textoAcrescimo = parcela === 1 
+      ? '<span style="color:#38a169; font-style:italic; font-size:13px;">(Sem acréscimo adicional)</span>' 
+      : `<span style="color:#e53e3e; font-style:italic; font-size:13px;">+${taxasParcelas[parcela]}% = ${valorTotal.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>`;
+
+    parcelasHTML += `
+      <div style="background:${bgColor}; padding:8px 12px; margin:5px 0; border-left:4px solid ${borderColor}; display:flex; justify-content:space-between; align-items:center; gap:15px;">
+        <span style="font-weight:600; color:#667eea; font-size:15px; min-width:30px;">${parcela}x</span>
+        <span style="font-size:17px; font-weight:700; color:#2d3748; flex:1; text-align:center;">${valorParcela.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>
+        ${textoAcrescimo}
+      </div>
+    `;
+  }
+  parcelasHTML += `</div>`;
+
+  const conteudo = `
+    <div style="font-family:Arial,sans-serif; padding:40px; background:white; color:#333; line-height:1.6; max-width:700px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:25px; padding-bottom:15px; border-bottom:3px solid #667eea;">
+        <h1 style="color:#667eea; margin:0; font-size:32px;">🎹 LL SAMPLES 🎹</h1>
+        <h2 style="color:#764ba2; margin:10px 0 0 0; font-size:18px;">🌟 ORÇAMENTO ESPECIAL – ${qtdSamples} SAMPLE${qtdSamples>1?"S":""}</h2>
+      </div>
+
+      ${cliente ? `<div style="padding:10px; background:#f7fafc; margin:10px 0;"><strong>👤 Cliente:</strong> ${cliente}</div>` : ''}
+      ${contato ? `<div style="padding:10px; background:#f7fafc; margin:10px 0;"><strong>📲 Contato:</strong> ${contato}</div>` : ''}
+
+      <h3 style="color:#667eea; margin:20px 0 10px 0;">🗒️ SAMPLES SELECIONADOS:</h3>
+      ${samplesHTML}
+
+      ${(perc > 0 || val > 0) ? `<div style="padding:15px; margin:15px 0; background:#f7fafc; border-left:4px solid #667eea; font-size:16px;"><strong>💰 Valor Bruto:</strong> ${total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</div>` : ''}
+      ${descontoHTML}
+
+      <div style="padding:15px; margin:15px 0; background:#667eea; color:white; font-size:16px;">
+        <strong>💳 Total Final (Cartão c/ acréscimo 5,24%):</strong><br>
+        <span style="font-size:24px; font-weight:bold;">${valorCartao.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
+      </div>
+
+      ${parcelasHTML}
+
+      <div style="padding:15px; margin:15px 0; background:#d4fc79; color:#2d3748; font-size:16px;">
+        <strong>💵 Total Final (PIX):</strong><br>
+        <span style="font-size:24px; font-weight:bold;">${final.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
+      </div>
+
+      ${msgAdd ? `<div style="padding:15px; margin:15px 0; background:#f7fafc; border-left:4px solid #667eea; font-style:italic;">${msgAdd}</div>` : ''}
+
+      <div style="text-align:center; margin-top:30px; padding-top:15px; border-top:1px solid #ddd; color:#999; font-size:11px;">
+        <p style="margin:5px 0;">⚡ LL SAMPLES ⚡ | 🎹 Obrigado pela compra! | 👊🏻 @llsamples_</p>
+        <p style="margin:5px 0;">Orçamento gerado em ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}</p>
+      </div>
+    </div>
+  `;
+
+  // Cria elemento temporário
+  const elemento = document.createElement('div');
+  elemento.innerHTML = conteudo;
+  elemento.style.backgroundColor = 'white';
+  elemento.style.margin = '0';
+  elemento.style.padding = '0';
+  document.body.appendChild(elemento);
+
+  const opt = {
+    margin: 0,
+    filename: `Orcamento_Continuo_${Date.now()}.pdf`,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { 
+      scale: 2,
+      useCORS: true,
+      letterRendering: true,
+      scrollY: 0,
+      scrollX: 0
+    },
+    jsPDF: { 
+      unit: 'px', 
+      format: [elemento.offsetWidth, elemento.offsetHeight],
+      orientation: 'portrait',
+      compress: true
+    },
+    pagebreak: { mode: 'avoid-all' }
+  };
+
+  html2pdf().set(opt).from(elemento).save().finally(() => {
+    document.body.removeChild(elemento);
+    alert("✅ PDF contínuo com parcelas gerado!");
+  });
+}
 
 
 function gerarMensagem() {
@@ -914,6 +1687,7 @@ function gerarMensagem() {
   msg += `⚡ LL SAMPLES ⚡
 🎹 Obrigado pela compra!!!
 👊🏻 Marca lá → @llsamples_
+
 ⤵️ Acesse nosso grupo para promoções exclusivas e brindes!!! 
 https://chat.whatsapp.com/KSSYxQZRanb5OyhRqwgHs6`;
 
@@ -928,95 +1702,142 @@ https://chat.whatsapp.com/KSSYxQZRanb5OyhRqwgHs6`;
   const descontoHTML = descontoTexto ? `<p class='desconto-texto'>${descontoTexto}</p>` : "";
   const logoHTML = logoSrc ? `<div style="text-align:center; margin-bottom:20px;"><img src="${logoSrc}" alt="Logo" style="height:80px;"></div>` : "";
 
- document.getElementById("previewArea").innerHTML = `
+document.getElementById("previewArea").innerHTML = `
     ${logoHTML}
     <div style="text-align:center;">
-      <h2 style="color:#667eea; margin:10px 0; font-size:2em; border:none;">🎹 LL SAMPLES 🎹</h2>
+      <h2 style="color:white; margin:10px 0; font-size:2em; border:none;">🎹 LL SAMPLES 🎹</h2>
     </div>
-
-    <h3 style="text-align:center; margin-top:0; color:#764ba2; font-weight:600;">🌟 ORÇAMENTO ESPECIAL – ${qtdSamples} SAMPLE${qtdSamples>1?"S":""}</h3>
+    <h3 style="text-align:center; margin-top:0; color:white; font-weight:600;">🌟 ORÇAMENTO ESPECIAL – ${qtdSamples} SAMPLE${qtdSamples>1?"S":""}</h3>
     <hr style="border:2px solid #667eea; margin:20px 0;">
-    ${cliente?`<p style="padding:10px; background:#f7fafc; border-radius:8px; margin:10px 0;"><strong>👤 Cliente:</strong> ${cliente}</p>`:""}
-    ${contato?`<p style="padding:10px; background:#f7fafc; border-radius:8px; margin:10px 0;"><strong>📲 Contato:</strong> ${contato}</p>`:""}
+    ${cliente?`<p style="padding:10px; background:#f7fafc; border-radius:8px; margin:10px 0; color:#212121;"><strong>👤 Cliente:</strong> ${cliente}</p>`:""}
+    ${contato?`<p style="padding:10px; background:#f7fafc; border-radius:8px; margin:10px 0; color:#212121;"><strong>📲 Contato:</strong> ${contato}</p>`:""}
     <div style="margin:20px 0;">
       <h3 style="color:#667eea; font-weight:700;">🗒️ SAMPLES SELECIONADOS:</h3>
       ${listaHTML}
     </div>
     ${(perc > 0 || val > 0) ? `<p class="total">💰 Valor Bruto: ${total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</p>` : ""}
     ${descontoHTML}
-    <p class="valor-final" style="background: #667eea; color:white;">💳 Total Final (Cartão c/ acréscimo): <strong>${(final * 1.06).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</strong></p>
-    <p class="valor-final">💵 Total Final (PIX): <strong>${final.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</strong></p>
-    ${msgAdd?`<p style="padding:15px; background:#f7fafc; border-radius:8px; font-style:italic; margin-top:15px;">${msgAdd}</p>`:""}
+    <!-- AQUI ESTÁ A MUDANÇA: Adicionamos margin-top ao estilo inline -->
+    <p class="valor-final" style="background: #667eea; color:white; margin-top: 20px;">💳 Total Final (Cartão c/ acréscimo): <strong>${(final * 1.0524).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</strong></p>
+    ${gerarHTMLParcelas(final)}
+    <p class="valor-final" style="font-weight: bold;">*💵 Total Final (PIX): <strong>${final.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</strong>*</p>
+    ${msgAdd?`<p style="padding:15px; background:#f7fafc; border-radius:8px; font-style:italic; margin-top:15px; color:#212121;">${msgAdd}</p>`:""}
     <hr style="margin:30px 0; border:1px solid #e2e8f0;">
-    <pre id="mensagemPronta" style="background:#f7fafc; padding:20px; border-radius:10px; border-left:4px solid #667eea;">${msg}</pre>`;
+    <pre id="mensagemPronta" style="background:#f7fafc; padding:20px; border-radius:10px; border-left:4px solid #667eea; color:#212121;">${msg}</pre>`;
+
+
+  // Reset do estado das parcelas
+  parcelasVisiveis = false;
+  const btnParcelas = document.querySelector('button[onclick="toggleParcelas()"]');
+  if (btnParcelas) {
+    btnParcelas.textContent = '💳 Mostrar Parcelas';
+  }
+
 }
 
 
 
 function copiarMensagem() {
-  const preview = document.getElementById("previewArea");
-  if (!preview || preview.innerText.includes("Preencha")) {
-    alert("⚠️ Gere o orçamento primeiro!");
-    return;
-  }
-  const clone = preview.cloneNode(true);
-  let texto = clone.innerText
-    .replace(/\r/g, '')
-    .replace(/[ \t]+/g, ' ')
-    .replace(/\n\s*\n\s*\n+/g, '\n\n')
-    .trim();
+    const preview = document.getElementById("previewArea");
+    if (!preview || preview.innerText.includes("Preencha")) {
+        alert("⚠️ Gere o orçamento primeiro!");
+        return;
+    }
+    const clone = preview.cloneNode(true);
 
-  texto = texto.replace(/•\s*/g, '\n• ').trim();
-  texto = texto.replace(/\n{3,}/g, '\n\n');
+    // --- NOVA LÓGICA AQUI ---
+    // Verifica se o container de parcelas está visível
+    const parcelasContainer = document.querySelector('.parcelas-container');
+    const parcelasVisiveis = parcelasContainer && parcelasContainer.classList.contains('show');
 
-  const textarea = document.createElement('textarea');
-  textarea.value = texto;
-  textarea.style.position = 'fixed';
-  textarea.style.opacity = '0';
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand('copy');
-  document.body.removeChild(textarea);
-  alert("✅ Mensagem completa copiada!");
+    // Se as parcelas NÃO estiverem visíveis, remove-as do clone antes de copiar
+    if (!parcelasVisiveis) {
+        const parcelasNode = clone.querySelector('.parcelas-container');
+        if (parcelasNode) {
+            parcelasNode.remove();
+        }
+    }
+    // --- FIM DA NOVA LÓGICA ---
+
+    let texto = clone.innerText
+        .replace(/\r/g, '')
+        .replace(/[ \t]+/g, ' ')
+        .replace(/\n\s*\n\s*\n+/g, '\n\n')
+        .trim();
+
+    texto = texto.replace(/•\s*/g, '\n• ').trim();
+    texto = texto.replace(/\n{3,}/g, '\n\n');
+
+    const textarea = document.createElement('textarea');
+    textarea.value = texto;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    alert("✅ Mensagem completa copiada!");
 }
+
 
 function copiarParteCima() {
-  const preview = document.getElementById("previewArea");
-  if (!preview) {
-    alert("⚠️ Gere o orçamento primeiro!");
-    return;
-  }
-  const clone = preview.cloneNode(true);
-  const msgNode = clone.querySelector("#mensagemPronta");
-  if (msgNode) msgNode.remove();
+    const preview = document.getElementById("previewArea");
+    if (!preview) {
+        alert("⚠️ Gere o orçamento primeiro!");
+        return;
+    }
 
-  let texto = clone.innerText
-    .replace(/\r/g, '')           
-    .replace(/^\s+/gm, '')        
-    .replace(/[ \t]+/g, ' ')      
-    .replace(/\n{3,}/g, '\n\n')   
-    .trim();
+    const clone = preview.cloneNode(true);
 
-  texto = texto.replace(/([^\n])•/g, '$1\n•');
+    // Remove a mensagem de baixo
+    const msgNode = clone.querySelector("#mensagemPronta");
+    if (msgNode) msgNode.remove();
 
-  texto = texto
-    .replace(/(🎹 LL SAMPLES 🎹)/g, '$1\n')
-    .replace(/(🌟 ORÇAMENTO ESPECIAL[^\n]+)/g, '\n$1\n')
-    .replace(/(🗒️ SAMPLES SELECIONADOS:)/g, '\n$1')
-    .replace(/(💳 Total Final[^\n]+)/g, '\n$1')
-    .replace(/(💵 Total Final[^\n]+)/g, '$1')
-    .replace(/\n{3,}/g, '\n\n');
+    // Remove as parcelas se não estiverem visíveis
+    const parcelasVisiveis = document.querySelector('.parcelas-container.show');
+    if (!parcelasVisiveis) {
+      const parcelasNode = clone.querySelector('.parcelas-container');
+      if (parcelasNode) parcelasNode.remove();
+    }
 
-  const textarea = document.createElement('textarea');
-  textarea.value = texto;
-  textarea.style.position = 'fixed';
-  textarea.style.opacity = '0';
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand('copy');
-  document.body.removeChild(textarea);
-  alert("✅ Parte de cima copiada!");
+    // --- NOVA LÓGICA AQUI ---
+    // Adiciona uma margem superior ao Total Final (PIX) no clone
+    const totalPixNode = clone.querySelector('.valor-final[style*="font-weight: bold;"]'); // Seleciona o p do PIX
+    if (totalPixNode) {
+        totalPixNode.style.marginTop = '20px'; // Ajuste o valor conforme sua preferência (ex: '15px', '25px')
+    }
+    // --- FIM DA NOVA LÓGICA ---
+
+    let texto = clone.innerText
+      .replace(/\r/g, '')        
+      .replace(/^\s+/gm, '')      
+      .replace(/[ \t]+/g, ' ')    
+      .replace(/\n{3,}/g, '\n\n')  
+      .trim();
+
+    texto = texto.replace(/([^\n])•/g, '$1\n•');
+
+    texto = texto
+      .replace(/(🎹 LL SAMPLES 🎹)/g, '$1\n')
+      .replace(/(🌟 ORÇAMENTO ESPECIAL[^\n]+)/g, '\n$1\n')
+      .replace(/(🗒️ SAMPLES SELECIONADOS:)/g, '\n$1')
+      .replace(/(💳 Total Final[^\n]+)/g, '\n$1')
+      .replace(/(💵 Total Final[^\n]+)/g, '$1') // Esta linha agora terá um margin-top no clone
+      .replace(/\n{3,}/g, '\n\n');
+
+    const textarea = document.createElement('textarea');
+    textarea.value = texto;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    alert("✅ Parte de cima copiada!");
 }
+
+
 
 function copiarParteBaixo() {
   const msgNode = document.getElementById("mensagemPronta");
@@ -1038,63 +1859,76 @@ function copiarParteBaixo() {
 }
 
 function copiarParteCimaComVideos() {
-  const preview = document.getElementById("previewArea");
-  if (!preview) {
-    alert("⚠️ Gere o orçamento primeiro!");
-    return;
-  }
-
-  const clone = preview.cloneNode(true);
-  const msgNode = clone.querySelector("#mensagemPronta");
-  if (msgNode) msgNode.remove();
-
-  let texto = clone.innerText;
-  texto = texto.replace(/•\s*/g, '\n• ');
-
-  const linhas = texto.split('\n');
-  const resultado = [];
-
-  for (let i = 0; i < linhas.length; i++) {
-    const linha = linhas[i].trim();
-    if (linha) {
-      resultado.push(linha);
-
-      // Adiciona linha em branco após "SAMPLES SELECIONADOS:"
-      if (linha.includes('🗒️ SAMPLES SELECIONADOS:')) {
-        resultado.push('');
-      }
-
-      // Se é um sample, adiciona vídeo (se houver) e linha em branco
-      if (linha.startsWith('•')) {
-        const nome = linha.split(' - ')[0].replace('•', '').trim();
-        if (videosDemo[nome]) {
-          resultado.push('🎥 Vídeo: ' + videosDemo[nome]);
-        }
-        resultado.push('');
-      }
-
-      // Adiciona linha em branco antes dos totais
-      if (linha.includes('💳 Total Final')) {
-        resultado.pop(); // Remove a última linha em branco
-        resultado.push('');
-        resultado.push(linha);
-        continue;
-      }
+    const preview = document.getElementById("previewArea");
+    if (!preview) {
+        alert("⚠️ Gere o orçamento primeiro!");
+        return;
     }
-  }
 
-  const textoFinal = resultado.join('\n');
+    const clone = preview.cloneNode(true);
+    const msgNode = clone.querySelector("#mensagemPronta");
+    if (msgNode) msgNode.remove();
 
-  const textarea = document.createElement('textarea');
-  textarea.value = textoFinal;
-  textarea.style.position = 'fixed';
-  textarea.style.opacity = '0';
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand('copy');
-  document.body.removeChild(textarea);
-  alert("✅ Copiado com vídeos! 🎥");
+    // --- NOVA LÓGICA AQUI ---
+    // Remove o bloco de parcelas se ele não estiver visível
+    const parcelasContainer = document.querySelector('.parcelas-container');
+    const parcelasVisiveis = parcelasContainer && parcelasContainer.classList.contains('show');
+    if (!parcelasVisiveis) {
+        const parcelasNode = clone.querySelector('.parcelas-container');
+        if (parcelasNode) {
+            parcelasNode.remove();
+        }
+    }
+    // --- FIM DA NOVA LÓGICA ---
+
+    let texto = clone.innerText;
+    texto = texto.replace(/•\s*/g, '\n• ');
+
+    const linhas = texto.split('\n');
+    const resultado = [];
+
+    for (let i = 0; i < linhas.length; i++) {
+        const linha = linhas[i].trim();
+        if (linha) {
+            resultado.push(linha);
+
+            // Adiciona linha em branco após "SAMPLES SELECIONADOS:"
+            if (linha.includes('🗒️ SAMPLES SELECIONADOS:')) {
+                resultado.push('');
+            }
+
+            // Se é um sample, adiciona vídeo (se houver) e linha em branco
+            if (linha.startsWith('•')) {
+                const nome = linha.split(' - ')[0].replace('•', '').trim();
+                if (videosDemo[nome]) {
+                    resultado.push('🎥 Vídeo: ' + videosDemo[nome]);
+                }
+                resultado.push('');
+            }
+
+            // Adiciona linha em branco antes dos totais
+            if (linha.includes('💳 Total Final')) {
+                resultado.pop(); // Remove a última linha em branco
+                resultado.push('');
+                resultado.push(linha);
+                continue;
+            }
+        }
+    }
+
+    const textoFinal = resultado.join('\n');
+
+    const textarea = document.createElement('textarea');
+    textarea.value = textoFinal;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    alert("✅ Copiado com vídeos! 🎥");
 }
+
 
 
 
@@ -1167,9 +2001,10 @@ const linkHTML = incluirLinks ? `<div style="color:#667eea; font-size:16px; marg
       ${(perc > 0 || val > 0) ? `<div style="padding:15px; margin:15px 0; background:#f7fafc; border-left:4px solid #667eea; font-size:16px;"><strong>💰 Valor Bruto:</strong> ${total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</div>` : ''}
       ${descontoHTML}
       <div style="padding:15px; margin:15px 0; background:#667eea; color:white; font-size:16px;">
-        <strong>💳 Total Final (Cartão c/ acréscimo 6%):</strong><br>
-        <span style="font-size:24px; font-weight:bold;">${(final * 1.06).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
+        <strong>💳 Total Final (Cartão c/ acréscimo 5,24%):</strong><br>
+        <span style="font-size:24px; font-weight:bold;">${(final * 1.0524).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
       </div>
+	     ${gerarHTMLParcelasPDF(final)}
       <div style="padding:15px; margin:15px 0; background:#d4fc79; color:#2d3748; font-size:16px;">
         <strong>💵 Total Final (PIX):</strong><br>
         <span style="font-size:24px; font-weight:bold;">${final.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</span>
@@ -1181,6 +2016,40 @@ const linkHTML = incluirLinks ? `<div style="color:#667eea; font-size:16px; marg
     </div>
   `;
 }
+
+function gerarHTMLParcelasPDF(valorFinal) {
+  const valorCartao = valorFinal * 1.0524;
+  let html = `
+    <div style="margin:20px 0; padding:15px; background:#f7fafc; border:2px solid #667eea; border-radius:10px;">
+      <h3 style="color:#667eea; text-align:center; margin:0 0 15px 0; font-size:18px;">💳 SIMULAÇÃO DE PARCELAMENTO NO CARTÃO</h3>
+  `;
+
+  for (let parcela = 1; parcela <= 12; parcela++) {
+    const taxaDecimal = taxasParcelas[parcela] / 100;
+    const valorComJuros = valorCartao * (1 + taxaDecimal);
+    const valorParcela = valorComJuros / parcela;
+    const valorTotal = valorParcela * parcela;
+
+    const bgColor = parcela === 1 ? '#d4fc79' : 'white';
+    const borderColor = parcela === 1 ? '#38a169' : '#e2e8f0';
+
+    const textoAcrescimo = parcela === 1 
+      ? '<span style="color:#38a169; font-style:italic;">(Sem acréscimo adicional)</span>' 
+      : `<span style="color:#e53e3e; font-style:italic;">+${taxasParcelas[parcela]}% = ${valorTotal.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>`;
+
+    html += `
+      <div style="background:${bgColor}; padding:10px; margin:5px 0; border-left:4px solid ${borderColor}; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-weight:600; color:#667eea; font-size:16px;">${parcela}x</span>
+        <span style="font-size:18px; font-weight:700; color:#2d3748;">${valorParcela.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</span>
+        <span style="font-size:14px;">${textoAcrescimo}</span>
+      </div>
+    `;
+  }
+
+  html += `</div>`;
+  return html;
+}
+
 
 function salvarPDF() {
   const conteudo = gerarConteudoPDF(true, false);
@@ -1284,6 +2153,7 @@ function limparCampos() {
 
 
 </script>
-</body>
-</html>
 
+
+
+</body></html>
