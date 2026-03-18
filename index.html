@@ -3,8 +3,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LL Samples Links - Gerador de Orçamentos</title>
-<link href="./LL Samples Links - Gerador de Orçamentos_files/css2" rel="stylesheet">
-<script src="./LL Samples Links - Gerador de Orçamentos_files/html2pdf.bundle.min.js.download"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
     /* Reset básico */
@@ -439,18 +438,28 @@
         }
     }
 
+    @page {
+        margin: 0 !important;
+        padding: 0 !important;
+        size: auto;
+    }
+
+    @page :first {
+        margin-top: 0 !important;
+    }
+
     @media print {
-        body * {
-            visibility: hidden;
-        }
-        #previewArea, #previewArea * {
-            visibility: visible;
-        }
-        #previewArea {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
+        body > * { display: none !important; }
+        #pdfTemp {
+            display: block !important;
+            position: static !important;
+            width: 100% !important;
+            background: white !important;
+            color: #333 !important;
+            font-family: Arial, sans-serif !important;
+            padding: 6mm 8mm !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
         }
     }
 
@@ -516,8 +525,23 @@
     }
 
 
+    /* ===== IMPRESSÃO / PDF ===== */
     #pdfTemp {
         display: none;
+    }
+
+    @media print {
+        body > * { display: none !important; }
+        #pdfTemp {
+            display: block !important;
+            position: static !important;
+            width: 100% !important;
+            background: white !important;
+            color: #333 !important;
+            font-family: Arial, sans-serif !important;
+            padding: 20mm !important;
+            margin: 0 !important;
+        }
     }
 
     .parcelas-container {
@@ -596,15 +620,12 @@
     }
 </style>
 
-<link rel="stylesheet" href="chrome-extension://mdjbgnpehbhpibonmjjjbjaoechnlcaf/popup/fa.css"></head>
+<link rel="stylesheet" href="chrome-extension://mdjbgnpehbhpibonmjjjbjaoechnlcaf/popup/fa.css"><link rel="stylesheet" href="chrome-extension://mdjbgnpehbhpibonmjjjbjaoechnlcaf/popup/fa.css"></head>
 <body>
 <div class="container">
   <div class="form-panel">
     <div class="logo-box">
-       <img id="logoPreview" 
-      src="https://raw.githubusercontent.com/ciliocavalcante-design/imagesll/2f3f0447d9d7afa76f017257d899151e0b7468bb/Layer%205.png" 
-      alt="Logo LL Samples" 
-      class="logo-preview">
+       <img id="logoPreview" src="https://raw.githubusercontent.com/llsamplese/llcatalogo/main/Layer%205.png" alt="Logo LL Samples" class="logo-preview">
     </div>
 
     <h2>⚡ LL Samples Links</h2>
@@ -638,236 +659,248 @@ LL Metais"></textarea>
 </div>
 
       <div id="samplesContainer" class="sample-list"><div class="sample-item">
-      <input type="checkbox" value="0" id="sample_0">
-	  <label for="sample_0">LL Drums Diovane Severo - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="1" id="sample_1.1"> 
-      <label for="sample_0">LL Drums Diovane Severo - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="1" id="sample_1.2">  
-      <label for="sample_0">LL Guitarra Forró - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="1" id="sample_1.3">
-      <label for="sample_1">LL Pacote Produção Guilherme Silva - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="2" id="sample_2">
-      <label for="sample_2">LL Pacote Produção Arrocha - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="3" id="sample_3">
-      <label for="sample_3">LL Drums Luxúria - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="4" id="sample_4">
-      <label for="sample_4">LL Drums Forró Boys - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="5" id="sample_5">
-      <label for="sample_5">LL Drums Rey Vaqueiro - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="6" id="sample_6">
-      <label for="sample_6">LL Piano Romântico - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="7" id="sample_7">
-      <label for="sample_7">LL Acordeon Forro - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="8" id="sample_8">
-      <label for="sample_8">LL Pacote Produção Claudio Ney e Juliana - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="9" id="sample_9">
-      <label for="sample_9">LL Drums Claudio Ney e Juliana - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="10" id="sample_10">
-      <label for="sample_10">LL Drums Pablo - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="11" id="sample_11">
-      <label for="sample_11">LL Drums Safadao Vaquejada - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="12" id="sample_12">
-      <label for="sample_12">LL Violao Pop v3 - R$90.00</label></div><div class="sample-item">
-      <input type="checkbox" value="13" id="sample_13">
-      <label for="sample_13">LL Drums Thales Play - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="14" id="sample_14">
-      <label for="sample_14">LL Drums Flavio Pizada Quente - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="15" id="sample_15">
-      <label for="sample_15">LL Drums Forrozin Os Feras - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="16" id="sample_16">
-      <label for="sample_16">LL Pacote Producao Arrasta-Pe (Completo) - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="17" id="sample_17">
-      <label for="sample_17">LL Pacote Producao Arrasta-Pe (Acomp) - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="18" id="sample_18">
-      <label for="sample_18">LL Drums Arrasta-Pé v2 - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="19" id="sample_19">
-      <label for="sample_19">LL Drums Ronny Arrocha 2025 - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="20" id="sample_20">
-      <label for="sample_20">LL Drums Guilherme Silva - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="21" id="sample_21">
-      <label for="sample_21">LL Pacote Produção Nattan - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="22" id="sample_22">
-      <label for="sample_22">LL Keys Pagodao - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="23" id="sample_23">
-      <label for="sample_23">LL Bass Pagodao v2 - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="24" id="sample_24">
-      <label for="sample_24">LL Guitarra Pagodao v3 - R$80.00</label></div><div class="sample-item">
-      <input type="checkbox" value="25" id="sample_25">
-      <label for="sample_25">LL Drums Marcynho Batidao - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="26" id="sample_26">
-      <label for="sample_26">LL Bass Forro Romantico - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="27" id="sample_27">
-      <label for="sample_27">LL Guitarra Batidao Cliente - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="28" id="sample_28">
-      <label for="sample_28">LL Drums Leo Foguete - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="29" id="sample_29">
-      <label for="sample_29">LL Drums Seresta do Rasta - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="30" id="sample_30">
-      <label for="sample_30">LL Drums Desejo - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="31" id="sample_31">
-      <label for="sample_31">LL Drums Nattan Forró - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="32" id="sample_32">
-      <label for="sample_32">LL Baião Drums - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="33" id="sample_33">
-      <label for="sample_33">LL Drums Arrocha Safadão - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="34" id="sample_34">
-      <label for="sample_34">LL Bass Arrocha v2 – Seresta - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="35" id="sample_35">
-      <label for="sample_35">LL Guitarra Arrocha v2 – Seresta - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="36" id="sample_36">
-      <label for="sample_36">LL Drums Natanzinho Lima - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="37" id="sample_37">
-      <label for="sample_37">LL Drums Henry Freitas - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="38" id="sample_38">
-      <label for="sample_38">LL Lambada Drums - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="39" id="sample_39">
-      <label for="sample_39">LL Calypso Drums - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="40" id="sample_40">
-      <label for="sample_40">LL Ukulele Prime - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="41" id="sample_41">
-      <label for="sample_41">LL Arraia Drums - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="42" id="sample_42">
-      <label for="sample_42">LL Arrocha Drums v2 - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="43" id="sample_43">
-      <label for="sample_43">LL Forro Romantico Drums v2 - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="44" id="sample_44">
-      <label for="sample_44">LL Forrozao Drums v1.1 - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="45" id="sample_45">
-      <label for="sample_45">LL Forro Vaneirao Drums - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="46" id="sample_46">
-      <label for="sample_46">LL Violao Pop 6-8 - R$80.00</label></div><div class="sample-item">
-      <input type="checkbox" value="47" id="sample_47">
-      <label for="sample_47">LL Strings - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="48" id="sample_48">
-      <label for="sample_48">LL Acordeon Arrasta-Pe - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="49" id="sample_49">
-      <label for="sample_49">LL Violao Pop v2 - R$80.00</label></div><div class="sample-item">
-      <input type="checkbox" value="50" id="sample_50">
-      <label for="sample_50">LL Bass Pagode - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="51" id="sample_51">
-      <label for="sample_51">LL Bass Forrozao - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="52" id="sample_52">
-      <label for="sample_52">LL Acordeon Forrozao - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="53" id="sample_53">
-      <label for="sample_53">LL Guitarra Forrozao - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="54" id="sample_54">
-      <label for="sample_54">LL Bass Pagodao - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="55" id="sample_55">
-      <label for="sample_55">LL Guitarra Pagodão v2 - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="56" id="sample_56">
-      <label for="sample_56">LL Pagodao Rythm v2 - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="57" id="sample_57">
-      <label for="sample_57">LL Guitarra Axe v2 - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="58" id="sample_58">
-      <label for="sample_58">LL Bass Axé - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="59" id="sample_59">
-      <label for="sample_59">LL Axé Rythm v2 - R$80.00</label></div><div class="sample-item">
-      <input type="checkbox" value="60" id="sample_60">
-      <label for="sample_60">LL Cavaco Prime v2 - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="61" id="sample_61">
-      <label for="sample_61">LL Acordeon Vaneira - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="62" id="sample_62">
-      <label for="sample_62">LL Violao Pagode Samba - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="63" id="sample_63">
-      <label for="sample_63">LL Drums Manu Bahtidao - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="64" id="sample_64">
-      <label for="sample_64">LL Vaneira Drums - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="65" id="sample_65">
-      <label for="sample_65">LL Violão Pop - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="66" id="sample_66">
-      <label for="sample_66">LL Acordeon Arrocha - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="67" id="sample_67">
-      <label for="sample_67">LL Guitarra Calypso - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="68" id="sample_68">
-      <label for="sample_68">LL Drums Felipe Amorim - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="69" id="sample_69">
-      <label for="sample_69">LL Drums Zé Felipe - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="70" id="sample_70">
-      <label for="sample_70">LL Drums Mari Fernandez - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="71" id="sample_71">
-      <label for="sample_71">LL Bass Piseiro v2 - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="72" id="sample_72">
-      <label for="sample_72">LL Guitarra Piseiro v3 - R$80.00</label></div><div class="sample-item">
-      <input type="checkbox" value="73" id="sample_73">
-      <label for="sample_73">LL Pagode Drums e Percussion - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="74" id="sample_74">
-      <label for="sample_74">LL Violão Vaneira - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="75" id="sample_75">
-      <label for="sample_75">LL Iguinho e Lulinha Drums - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="76" id="sample_76">
-      <label for="sample_76">LL Bass Arrasta-Pe - R$40.00</label></div><div class="sample-item">
-      <input type="checkbox" value="77" id="sample_77">
-      <label for="sample_77">LL Metais v3 - R$80.00</label></div><div class="sample-item">
-      <input type="checkbox" value="78" id="sample_78">
-      <label for="sample_78">LL Forro Romantico Drums - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="79" id="sample_79">
-      <label for="sample_79">LL Violão Arrocha 1.5 (Re-Edition) - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="80" id="sample_80">
-      <label for="sample_80">LL Guitarra Arrasta-Pe - R$40.00</label></div><div class="sample-item">
-      <input type="checkbox" value="81" id="sample_81">
-      <label for="sample_81">LL Arrasta-Pe Drums 1.5 - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="82" id="sample_82">
-      <label for="sample_82">LL Metais 2.0 - R$80.00</label></div><div class="sample-item">
-      <input type="checkbox" value="83" id="sample_83">
-      <label for="sample_83">LL Arrocha Drums Nadson - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="84" id="sample_84">
-      <label for="sample_84">LL Arrocha Percussao - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="85" id="sample_85">
-      <label for="sample_85">LL Cavaco Prime - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="86" id="sample_86">
-      <label for="sample_86">LL Arrasta-Pe Drums - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="87" id="sample_87">
-      <label for="sample_87">LL Violao Arrocha - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="88" id="sample_88">
-      <label for="sample_88">LL Bass Arrocha - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="89" id="sample_89">
-      <label for="sample_89">LL Guitarra Arrocha - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="90" id="sample_90">
-      <label for="sample_90">LL Arrocha Drums - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="91" id="sample_91">
-      <label for="sample_91">LL Acordeon Piseiro 2.0 - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="92" id="sample_92">
-      <label for="sample_92">LL Piseiro Drums Summer - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="93" id="sample_93">
-      <label for="sample_93">LL Guitarra Piseiro 2.0 - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="94" id="sample_94">
-      <label for="sample_94">LL Guitarra Pagodão - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="95" id="sample_95">
-      <label for="sample_95">LL Pagodao Drums e Percussion - R$70.00</label></div><div class="sample-item">
-      <input type="checkbox" value="96" id="sample_96">
-      <label for="sample_96">LL Axé Drums - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="97" id="sample_97">
-      <label for="sample_97">LL Guitarra Axé - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="98" id="sample_98">
-      <label for="sample_98">LL Axé Percussão - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="99" id="sample_99">
-      <label for="sample_99">LL Piseiro Drums 2.0 - R$80.00</label></div><div class="sample-item">
-      <input type="checkbox" value="100" id="sample_100">
-      <label for="sample_100">LL Piseiro Drums 1.5 - R$80.00</label></div><div class="sample-item">
-      <input type="checkbox" value="101" id="sample_101">
-      <label for="sample_101">LL Pe de Serra Drums e Perc - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="102" id="sample_102">
-      <label for="sample_102">LL Acordeon Pé-de-Serra - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="103" id="sample_103">
-      <label for="sample_103">LL Guitarra Bregadeira - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="104" id="sample_104">
-      <label for="sample_104">LL Bregadeira Drums - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="105" id="sample_105">
-      <label for="sample_105">LL Percussao Piseiro - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="106" id="sample_106">
-      <label for="sample_106">LL Piseiro Bass - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="107" id="sample_107">
-      <label for="sample_107">LL Guitarra Piseiro - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="108" id="sample_108">
-      <label for="sample_108">LL Acordeon Piseiro - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="109" id="sample_109">
-      <label for="sample_109">LL WS Drums - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="110" id="sample_110">
-      <label for="sample_110">LL Piseiro Drums v1 - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="111" id="sample_111">
-      <label for="sample_111">LL Metais - R$60.00</label></div><div class="sample-item">
-      <input type="checkbox" value="112" id="sample_112">
-      <label for="sample_112">LL Sax v1.5 - R$60.00</label></div></div>
+            <input type="checkbox" value="0" id="sample_0">
+            <label for="sample_0">LL Bass Forró - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="1" id="sample_1">
+            <label for="sample_1">LL Arrocha Synths - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="2" id="sample_2">
+            <label for="sample_2">LL Piseiro Drums Cyber - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="3" id="sample_3">
+            <label for="sample_3">LL Drums Yasmin Sensação - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="4" id="sample_4">
+            <label for="sample_4">LL Drums Laercia Dantas - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="5" id="sample_5">
+            <label for="sample_5">LL Drums Eduardinho dos Teclados - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="6" id="sample_6">
+            <label for="sample_6">LL Guitarra Forró - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="7" id="sample_7">
+            <label for="sample_7">LL Drums Diovane Severo - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="8" id="sample_8">
+            <label for="sample_8">LL Drums Toque Dez - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="9" id="sample_9">
+            <label for="sample_9">LL Pacote Produção Guilherme Silva - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="10" id="sample_10">
+            <label for="sample_10">LL Pacote Produção Arrocha - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="11" id="sample_11">
+            <label for="sample_11">LL Drums Luxúria - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="12" id="sample_12">
+            <label for="sample_12">LL Drums Forró Boys - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="13" id="sample_13">
+            <label for="sample_13">LL Drums Rey Vaqueiro - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="14" id="sample_14">
+            <label for="sample_14">LL Piano Romântico - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="15" id="sample_15">
+            <label for="sample_15">LL Acordeon Forro - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="16" id="sample_16">
+            <label for="sample_16">LL Pacote Produção Claudio Ney e Juliana - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="17" id="sample_17">
+            <label for="sample_17">LL Drums Claudio Ney e Juliana - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="18" id="sample_18">
+            <label for="sample_18">LL Drums Pablo - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="19" id="sample_19">
+            <label for="sample_19">LL Drums Safadao Vaquejada - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="20" id="sample_20">
+            <label for="sample_20">LL Violao Pop v3 - R$90.00</label></div><div class="sample-item">
+            <input type="checkbox" value="21" id="sample_21">
+            <label for="sample_21">LL Drums Thales Play - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="22" id="sample_22">
+            <label for="sample_22">LL Drums Flavio Pizada Quente - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="23" id="sample_23">
+            <label for="sample_23">LL Drums Forrozin Os Feras - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="24" id="sample_24">
+            <label for="sample_24">LL Pacote Producao Arrasta-Pe (Completo) - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="25" id="sample_25">
+            <label for="sample_25">LL Pacote Producao Arrasta-Pe (Acomp) - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="26" id="sample_26">
+            <label for="sample_26">LL Drums Arrasta-Pé v2 - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="27" id="sample_27">
+            <label for="sample_27">LL Drums Ronny Arrocha 2025 - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="28" id="sample_28">
+            <label for="sample_28">LL Drums Guilherme Silva - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="29" id="sample_29">
+            <label for="sample_29">LL Pacote Produção Nattan - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="30" id="sample_30">
+            <label for="sample_30">LL Keys Pagodao - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="31" id="sample_31">
+            <label for="sample_31">LL Bass Pagodao v2 - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="32" id="sample_32">
+            <label for="sample_32">LL Guitarra Pagodao v3 - R$80.00</label></div><div class="sample-item">
+            <input type="checkbox" value="33" id="sample_33">
+            <label for="sample_33">LL Drums Marcynho Batidao - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="34" id="sample_34">
+            <label for="sample_34">LL Bass Forro Romantico - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="35" id="sample_35">
+            <label for="sample_35">LL Guitarra Batidao Cliente - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="36" id="sample_36">
+            <label for="sample_36">LL Drums Leo Foguete - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="37" id="sample_37">
+            <label for="sample_37">LL Drums Seresta do Rasta - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="38" id="sample_38">
+            <label for="sample_38">LL Drums Desejo - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="39" id="sample_39">
+            <label for="sample_39">LL Drums Nattan Forró - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="40" id="sample_40">
+            <label for="sample_40">LL Baião Drums - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="41" id="sample_41">
+            <label for="sample_41">LL Drums Arrocha Safadão - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="42" id="sample_42">
+            <label for="sample_42">LL Bass Arrocha v2 – Seresta - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="43" id="sample_43">
+            <label for="sample_43">LL Guitarra Arrocha v2 – Seresta - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="44" id="sample_44">
+            <label for="sample_44">LL Drums Natanzinho Lima - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="45" id="sample_45">
+            <label for="sample_45">LL Drums Henry Freitas - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="46" id="sample_46">
+            <label for="sample_46">LL Lambada Drums - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="47" id="sample_47">
+            <label for="sample_47">LL Calypso Drums - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="48" id="sample_48">
+            <label for="sample_48">LL Ukulele Prime - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="49" id="sample_49">
+            <label for="sample_49">LL Arraia Drums - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="50" id="sample_50">
+            <label for="sample_50">LL Arrocha Drums v2 - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="51" id="sample_51">
+            <label for="sample_51">LL Forro Romantico Drums v2 - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="52" id="sample_52">
+            <label for="sample_52">LL Forrozao Drums v1.1 - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="53" id="sample_53">
+            <label for="sample_53">LL Forro Vaneirao Drums - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="54" id="sample_54">
+            <label for="sample_54">LL Violao Pop 6-8 - R$80.00</label></div><div class="sample-item">
+            <input type="checkbox" value="55" id="sample_55">
+            <label for="sample_55">LL Strings - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="56" id="sample_56">
+            <label for="sample_56">LL Acordeon Arrasta-Pe - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="57" id="sample_57">
+            <label for="sample_57">LL Violao Pop v2 - R$80.00</label></div><div class="sample-item">
+            <input type="checkbox" value="58" id="sample_58">
+            <label for="sample_58">LL Bass Pagode - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="59" id="sample_59">
+            <label for="sample_59">LL Bass Forrozao - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="60" id="sample_60">
+            <label for="sample_60">LL Acordeon Forrozao - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="61" id="sample_61">
+            <label for="sample_61">LL Guitarra Forrozao - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="62" id="sample_62">
+            <label for="sample_62">LL Bass Pagodao - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="63" id="sample_63">
+            <label for="sample_63">LL Guitarra Pagodão v2 - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="64" id="sample_64">
+            <label for="sample_64">LL Pagodao Rythm v2 - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="65" id="sample_65">
+            <label for="sample_65">LL Guitarra Axe v2 - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="66" id="sample_66">
+            <label for="sample_66">LL Bass Axé - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="67" id="sample_67">
+            <label for="sample_67">LL Axé Rythm v2 - R$80.00</label></div><div class="sample-item">
+            <input type="checkbox" value="68" id="sample_68">
+            <label for="sample_68">LL Cavaco Prime v2 - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="69" id="sample_69">
+            <label for="sample_69">LL Acordeon Vaneira - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="70" id="sample_70">
+            <label for="sample_70">LL Violao Pagode Samba - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="71" id="sample_71">
+            <label for="sample_71">LL Drums Manu Bahtidao - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="72" id="sample_72">
+            <label for="sample_72">LL Vaneira Drums - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="73" id="sample_73">
+            <label for="sample_73">LL Violão Pop - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="74" id="sample_74">
+            <label for="sample_74">LL Acordeon Arrocha - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="75" id="sample_75">
+            <label for="sample_75">LL Guitarra Calypso - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="76" id="sample_76">
+            <label for="sample_76">LL Drums Felipe Amorim - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="77" id="sample_77">
+            <label for="sample_77">LL Drums Zé Felipe - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="78" id="sample_78">
+            <label for="sample_78">LL Drums Mari Fernandez - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="79" id="sample_79">
+            <label for="sample_79">LL Bass Piseiro v2 - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="80" id="sample_80">
+            <label for="sample_80">LL Guitarra Piseiro v3 - R$80.00</label></div><div class="sample-item">
+            <input type="checkbox" value="81" id="sample_81">
+            <label for="sample_81">LL Pagode Drums e Percussion - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="82" id="sample_82">
+            <label for="sample_82">LL Violão Vaneira - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="83" id="sample_83">
+            <label for="sample_83">LL Iguinho e Lulinha Drums - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="84" id="sample_84">
+            <label for="sample_84">LL Bass Arrasta-Pe - R$40.00</label></div><div class="sample-item">
+            <input type="checkbox" value="85" id="sample_85">
+            <label for="sample_85">LL Metais v3 - R$80.00</label></div><div class="sample-item">
+            <input type="checkbox" value="86" id="sample_86">
+            <label for="sample_86">LL Forro Romantico Drums - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="87" id="sample_87">
+            <label for="sample_87">LL Violão Arrocha 1.5 (Re-Edition) - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="88" id="sample_88">
+            <label for="sample_88">LL Guitarra Arrasta-Pe - R$40.00</label></div><div class="sample-item">
+            <input type="checkbox" value="89" id="sample_89">
+            <label for="sample_89">LL Arrasta-Pe Drums 1.5 - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="90" id="sample_90">
+            <label for="sample_90">LL Metais 2.0 - R$80.00</label></div><div class="sample-item">
+            <input type="checkbox" value="91" id="sample_91">
+            <label for="sample_91">LL Arrocha Drums Nadson - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="92" id="sample_92">
+            <label for="sample_92">LL Arrocha Percussao - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="93" id="sample_93">
+            <label for="sample_93">LL Cavaco Prime - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="94" id="sample_94">
+            <label for="sample_94">LL Arrasta-Pe Drums - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="95" id="sample_95">
+            <label for="sample_95">LL Violao Arrocha - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="96" id="sample_96">
+            <label for="sample_96">LL Bass Arrocha - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="97" id="sample_97">
+            <label for="sample_97">LL Guitarra Arrocha - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="98" id="sample_98">
+            <label for="sample_98">LL Arrocha Drums - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="99" id="sample_99">
+            <label for="sample_99">LL Acordeon Piseiro 2.0 - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="100" id="sample_100">
+            <label for="sample_100">LL Piseiro Drums Summer - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="101" id="sample_101">
+            <label for="sample_101">LL Guitarra Piseiro 2.0 - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="102" id="sample_102">
+            <label for="sample_102">LL Guitarra Pagodão - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="103" id="sample_103">
+            <label for="sample_103">LL Pagodao Drums e Percussion - R$70.00</label></div><div class="sample-item">
+            <input type="checkbox" value="104" id="sample_104">
+            <label for="sample_104">LL Axé Drums - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="105" id="sample_105">
+            <label for="sample_105">LL Guitarra Axé - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="106" id="sample_106">
+            <label for="sample_106">LL Axé Percussão - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="107" id="sample_107">
+            <label for="sample_107">LL Piseiro Drums 2.0 - R$80.00</label></div><div class="sample-item">
+            <input type="checkbox" value="108" id="sample_108">
+            <label for="sample_108">LL Piseiro Drums 1.5 - R$80.00</label></div><div class="sample-item">
+            <input type="checkbox" value="109" id="sample_109">
+            <label for="sample_109">LL Pe de Serra Drums e Perc - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="110" id="sample_110">
+            <label for="sample_110">LL Acordeon Pé-de-Serra - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="111" id="sample_111">
+            <label for="sample_111">LL Guitarra Bregadeira - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="112" id="sample_112">
+            <label for="sample_112">LL Bregadeira Drums - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="113" id="sample_113">
+            <label for="sample_113">LL Percussao Piseiro - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="114" id="sample_114">
+            <label for="sample_114">LL Piseiro Bass - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="115" id="sample_115">
+            <label for="sample_115">LL Guitarra Piseiro - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="116" id="sample_116">
+            <label for="sample_116">LL Acordeon Piseiro - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="117" id="sample_117">
+            <label for="sample_117">LL WS Drums - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="118" id="sample_118">
+            <label for="sample_118">LL Piseiro Drums v1 - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="119" id="sample_119">
+            <label for="sample_119">LL Metais - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="120" id="sample_120">
+            <label for="sample_120">LL Sax v1.5 - R$60.00</label></div></div>
     </div>
     <div class="form-section">
       <label>💬 Mensagem adicional</label>
@@ -889,11 +922,8 @@ LL Metais"></textarea>
 
     <!-- Grupo de Ações de PDF -->
     <div class="button-group pdf-actions">
-        <button class="btn-pdf" onclick="salvarPDF()">📄 PDF Completo</button>
-        <button class="btn-pdf" onclick="salvarPDFResumido()">📋 PDF Resumido</button>
+        <button class="btn-pdf" onclick="salvarPDF()">🖨️ Imprimir PDF</button>
         <button class="btn-pdf" onclick="salvarPDFComLinks()">🔗 PDF c/ Links</button>
-        <button class="btn-pdf btn-gradient-green" onclick="salvarPDFContinuo()">📜 PDF Contínuo c/ Parcelas</button>
-        <button class="btn-pdf btn-gradient-green" onclick="salvarPDFContinuomobile()">📱 PDF Contínuo Celular</button>
     </div>
 
     <!-- Grupo de Ações Secundárias -->
@@ -928,7 +958,13 @@ LL Metais"></textarea>
     return normalized.trim().replace(/\s+/g, ' ');
 }
 
-const rawData = `LL Guitarra Forró|https://we.tl/t-A4Ew2QUAJB|70
+const rawData = `LL Bass Forró|https://we.tl/t-b0bQNEwYbs|70
+LL Arrocha Synths|https://we.tl/t-nJYZzvRaYl|70
+LL Piseiro Drums Cyber|https://we.tl/t-OzTBfhE5ri|70
+LL Drums Yasmin Sensação|https://we.tl/t-QhGnr58NoH|70
+LL Drums Laercia Dantas|https://we.tl/t-eX1MqzMVuz|70
+LL Drums Eduardinho dos Teclados|https://we.tl/t-bk4W4A1XiD|70
+LL Guitarra Forró|https://we.tl/t-A4Ew2QUAJB|70
 LL Drums Diovane Severo|https://we.tl/t-te7mHORnvU|70
 LL Drums Toque Dez|https://we.tl/t-uY4CtEvwYa|70
 LL Pacote Produção Guilherme Silva|https://we.tl/t-Tjxvc3Rd2F|70
@@ -1445,7 +1481,7 @@ function salvarPDFContinuo() {
   parcelasHTML += `</div>`;
 
   const conteudo = `
-    <div style="font-family:Arial,sans-serif; padding:40px 60px; background:white; color:#333; line-height:1.6; max-width:750px; margin:0 auto;">
+    <div style="font-family:Arial,sans-serif; padding:5px 20px; background:white; color:#333; line-height:1.6; max-width:750px; margin:0 auto;">
       <div style="text-align:center; margin-bottom:25px; padding-bottom:15px; border-bottom:3px solid #667eea;">
         <h1 style="color:#E0E0E0; margin:0; font-size:32px;">🎹 LL SAMPLES 🎹</h1>
         <h2 style="color:#E0E0E0; margin:10px 0 0 0; font-size:18px;">🌟 ORÇAMENTO ESPECIAL – ${qtdSamples} SAMPLE${qtdSamples>1?"S":""}</h2>
@@ -1488,34 +1524,7 @@ function salvarPDFContinuo() {
     </div>
   `;
 
-  const elemento = document.createElement('div');
-  elemento.innerHTML = conteudo;
-  elemento.style.width = '100%';
-  elemento.style.backgroundColor = 'white';
-  document.body.appendChild(elemento);
-
-  const opt = {
-    margin: 0,
-    filename: `Orcamento_Parcelas_${Date.now()}.pdf`,
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { 
-      scale: 2,
-      useCORS: true,
-      letterRendering: true
-    },
-    jsPDF: { 
-      unit: 'mm', 
-      format: [210, 297 * 3], // Aumenta o tamanho para caber tudo sem quebra
-      orientation: 'portrait',
-      compress: true
-    },
-    pagebreak: { mode: 'avoid-all' }
-  };
-
-  html2pdf().set(opt).from(elemento).save().finally(() => {
-    document.body.removeChild(elemento);
-    alert("✅ PDF com Parcelas gerado!");
-  });
+  imprimirPDF(conteudo, 'Orcamento_Parcelas_LL');
 }
 
 function salvarPDFContinuomobile() {
@@ -1590,7 +1599,7 @@ function salvarPDFContinuomobile() {
   parcelasHTML += `</div>`;
 
   const conteudo = `
-    <div style="font-family:Arial,sans-serif; padding:40px; background:white; color:#333; line-height:1.6; max-width:700px; margin:0 auto;">
+    <div style="font-family:Arial,sans-serif; padding:5px 20px; background:white; color:#333; line-height:1.6; max-width:700px; margin:0 auto;">
       <div style="text-align:center; margin-bottom:25px; padding-bottom:15px; border-bottom:3px solid #667eea;">
         <h1 style="color:#667eea; margin:0; font-size:32px;">🎹 LL SAMPLES 🎹</h1>
         <h2 style="color:#764ba2; margin:10px 0 0 0; font-size:18px;">🌟 ORÇAMENTO ESPECIAL – ${qtdSamples} SAMPLE${qtdSamples>1?"S":""}</h2>
@@ -1626,38 +1635,7 @@ function salvarPDFContinuomobile() {
     </div>
   `;
 
-  // Cria elemento temporário
-  const elemento = document.createElement('div');
-  elemento.innerHTML = conteudo;
-  elemento.style.backgroundColor = 'white';
-  elemento.style.margin = '0';
-  elemento.style.padding = '0';
-  document.body.appendChild(elemento);
-
-  const opt = {
-    margin: 0,
-    filename: `Orcamento_Continuo_${Date.now()}.pdf`,
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { 
-      scale: 2,
-      useCORS: true,
-      letterRendering: true,
-      scrollY: 0,
-      scrollX: 0
-    },
-    jsPDF: { 
-      unit: 'px', 
-      format: [elemento.offsetWidth, elemento.offsetHeight],
-      orientation: 'portrait',
-      compress: true
-    },
-    pagebreak: { mode: 'avoid-all' }
-  };
-
-  html2pdf().set(opt).from(elemento).save().finally(() => {
-    document.body.removeChild(elemento);
-    alert("✅ PDF contínuo com parcelas gerado!");
-  });
+  imprimirPDF(conteudo, 'Orcamento_Continuo_LL');
 }
 
 
@@ -1702,7 +1680,7 @@ https://chat.whatsapp.com/KSSYxQZRanb5OyhRqwgHs6`;
     const valorPerc = perc > 0 ? total * (perc / 100) : 0;
     descontoTexto = `🔻 Desconto: `;
     if (perc > 0) descontoTexto += `${perc}% (${valorPerc.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}) `;
-    if (val > 0) descontoTexto += `+ ${val.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}`;
+    if (val > 0) descontoTexto += `- ${val.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}`;
   }
 
   const descontoHTML = descontoTexto ? `<p class='desconto-texto'>${descontoTexto}</p>` : "";
@@ -1772,6 +1750,7 @@ function copiarMensagem() {
         .trim();
 
     texto = texto.replace(/•\s*/g, '\n• ').trim();
+    texto = texto.replace(/(💰 Valor Bruto[^\n]+)/g, '\n$1');
     texto = texto.replace(/\n{3,}/g, '\n\n');
 
     const textarea = document.createElement('textarea');
@@ -1827,6 +1806,7 @@ function copiarParteCima() {
       .replace(/(🎹 LL SAMPLES 🎹)/g, '$1\n')
       .replace(/(🌟 ORÇAMENTO ESPECIAL[^\n]+)/g, '\n$1\n')
       .replace(/(🗒️ SAMPLES SELECIONADOS:)/g, '\n$1')
+      .replace(/(💰 Valor Bruto[^\n]+)/g, '\n$1')
       .replace(/(💳 Total Final[^\n]+)/g, '\n$1')
       .replace(/(💵 Total Final[^\n]+)/g, '$1') // Esta linha agora terá um margin-top no clone
       .replace(/\n{3,}/g, '\n\n');
@@ -1913,7 +1893,7 @@ function copiarParteCimaComVideos() {
             }
 
             // Adiciona linha em branco antes dos totais
-            if (linha.includes('💳 Total Final')) {
+            if (linha.includes('💰 Valor Bruto') || linha.includes('💳 Total Final')) {
                 resultado.pop(); // Remove a última linha em branco
                 resultado.push('');
                 resultado.push(linha);
@@ -2057,83 +2037,38 @@ function gerarHTMLParcelasPDF(valorFinal) {
 }
 
 
+
+function imprimirPDF(conteudo, titulo) {
+  if (!conteudo) return;
+  const pdfTemp = document.getElementById('pdfTemp');
+  pdfTemp.innerHTML = conteudo;
+
+  const tituloOriginal = document.title;
+  document.title = titulo || 'Orcamento_LL';
+
+  alert("💡 Dica: Na janela de impressão, desmarque a opção \"Cabeçalhos e rodapés\" para remover o espaço no topo!");
+
+  window.print();
+
+  setTimeout(() => {
+    document.title = tituloOriginal;
+    pdfTemp.innerHTML = '';
+  }, 1000);
+}
+
 function salvarPDF() {
   const conteudo = gerarConteudoPDF(true, false);
-  if (!conteudo) return;
-
-  // Cria elemento temporário
-  const elemento = document.createElement('div');
-  elemento.innerHTML = conteudo;
-  elemento.style.width = '210mm';
-  elemento.style.padding = '10mm';
-  elemento.style.backgroundColor = 'white';
-
-  document.body.appendChild(elemento);
-
-  const opt = {
-    margin: 5,
-    filename: `Orcamento_LL_${Date.now()}.pdf`,
-    image: { type: 'jpeg', quality: 0.95 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  };
-
-  html2pdf().set(opt).from(elemento).save().finally(() => {
-    document.body.removeChild(elemento);
-    alert("✅ PDF gerado!");
-  });
+  imprimirPDF(conteudo, 'Orcamento_LL_Samples');
 }
 
 function salvarPDFResumido() {
   const conteudo = gerarConteudoPDF(false, false);
-  if (!conteudo) return;
-
-  const elemento = document.createElement('div');
-  elemento.innerHTML = conteudo;
-  elemento.style.width = '210mm';
-  elemento.style.padding = '10mm';
-  elemento.style.backgroundColor = 'white';
-
-  document.body.appendChild(elemento);
-
-  const opt = {
-    margin: 5,
-    filename: `Orcamento_Resumido_${Date.now()}.pdf`,
-    image: { type: 'jpeg', quality: 0.95 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  };
-
-  html2pdf().set(opt).from(elemento).save().finally(() => {
-    document.body.removeChild(elemento);
-    alert("✅ PDF Resumido gerado!");
-  });
+  imprimirPDF(conteudo, 'Orcamento_Resumido_LL');
 }
 
 function salvarPDFComLinks() {
   const conteudo = gerarConteudoPDF(true, true);
-  if (!conteudo) return;
-
-  const elemento = document.createElement('div');
-  elemento.innerHTML = conteudo;
-  elemento.style.width = '210mm';
-  elemento.style.padding = '10mm';
-  elemento.style.backgroundColor = 'white';
-
-  document.body.appendChild(elemento);
-
-  const opt = {
-    margin: 5,
-    filename: `Orcamento_Links_${Date.now()}.pdf`,
-    image: { type: 'jpeg', quality: 0.95 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  };
-
-  html2pdf().set(opt).from(elemento).save().finally(() => {
-    document.body.removeChild(elemento);
-    alert("✅ PDF com Links gerado!");
-  });
+  imprimirPDF(conteudo, 'Orcamento_Links_LL');
 }
 
 function limparCampos() {
@@ -2162,5 +2097,43 @@ function limparCampos() {
 
 
 
-</body></html>
 
+
+<div id="give-freely-root-ejkiikneibegknkgimmihdpcbcedgmpo" class="give-freely-root" data-extension-id="ejkiikneibegknkgimmihdpcbcedgmpo" data-extension-name="Volume Booster" style="display: block;"><template shadowrootmode="open"><style>
+  :host {
+    all: initial;
+  }
+
+  .gf-scroll-remove::-webkit-scrollbar {
+    border-radius-bottom-right: 15px;
+  }
+
+  button {
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+
+  .give-freely-close-button:hover {
+    opacity: 0.7;
+  }
+
+  input[type="radio"] {
+    margin-right: 8px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    margin: 1em 0;
+  }
+
+  @media (max-width: 600px), (max-height: 480px) {
+    #give-freely-checkout-popup {
+      display: none !important;
+    }
+  }
+</style><div><div class="gf-app"></div></div></template></div></body></html>
