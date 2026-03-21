@@ -883,7 +883,9 @@ LL Metais"></textarea>
             <input type="checkbox" value="120" id="sample_120">
             <label for="sample_120">LL Metais - R$60.00</label></div><div class="sample-item">
             <input type="checkbox" value="121" id="sample_121">
-            <label for="sample_121">LL Sax v1.5 - R$60.00</label></div></div>
+            <label for="sample_121">LL Sax v1.5 - R$60.00</label></div><div class="sample-item">
+            <input type="checkbox" value="122" id="sample_122">
+            <label for="sample_122">LL Guitarra Distorção - R$60.00</label></div></div>
     </div>
     <div class="form-section">
       <label>💬 Mensagem adicional</label>
@@ -1059,7 +1061,8 @@ LL Acordeon Piseiro|https://we.tl/t-ifxFvZRXfD|60
 LL WS Drums|https://we.tl/t-1AcuGoU6aV|60
 LL Piseiro Drums v1|https://we.tl/t-ey1c3nhK3P|60
 LL Metais|https://we.tl/t-K8mFDCeNtj|60
-LL Sax v1.5|https://we.tl/t-o2dsHa2y7j|60`;
+LL Sax v1.5|https://we.tl/t-o2dsHa2y7j|60
+LL Guitarra Distorção|https://we.tl/t-29JS7ycfsm|60`;
 
 const samplesData = rawData.split("\n").map(l => {
   const [nome, link, valor] = l.split("|");
@@ -1368,12 +1371,19 @@ function toggleParcelas() {
 
   parcelasVisiveis = !parcelasVisiveis;
 
+  const totalCartao = document.getElementById('totalCartao');
+  const totalPix    = document.getElementById('totalPix');
+
   if (parcelasVisiveis) {
     container.classList.add('show');
     btn.textContent = '💳 Ocultar Parcelas';
+    if (totalCartao) totalCartao.style.display = 'none';
+    if (totalPix) totalPix.style.marginBottom = '15px';
   } else {
     container.classList.remove('show');
     btn.textContent = '💳 Mostrar Parcelas';
+    if (totalCartao) totalCartao.style.display = '';
+    if (totalPix) totalPix.style.marginBottom = '';
   }
 }
 
@@ -1706,9 +1716,9 @@ document.getElementById("previewArea").innerHTML = `
     ${(perc > 0 || val > 0) ? `<p class="total">💰 Valor Bruto: ${total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</p>` : ""}
     ${descontoHTML}
     <!-- AQUI ESTÁ A MUDANÇA: Adicionamos margin-top ao estilo inline -->
-    <p class="valor-final" style="background: #667eea; color:white; margin-top: 20px;">💳 Total Final (Cartão c/ acréscimo): <strong>${(final * 1.0524).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</strong></p>
+    <p id="totalCartao" class="valor-final" style="background: #667eea; color:white; margin-top: 20px;">💳 Total Final (Cartão c/ acréscimo): <strong>${(final * 1.0524).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</strong></p>
+    <p id="totalPix" class="valor-final" style="font-weight: bold;">*💵 Total Final (PIX): <strong>${final.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</strong>*</p>
     ${gerarHTMLParcelas(final)}
-    <p class="valor-final" style="font-weight: bold;">*💵 Total Final (PIX): <strong>${final.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</strong>*</p>
     ${msgAdd?`<p style="padding:15px; background:#f7fafc; border-radius:8px; font-style:italic; margin-top:15px; color:#212121;">${msgAdd}</p>`:""}
     <hr style="margin:30px 0; border:1px solid #e2e8f0;">
     <pre id="mensagemPronta" style="background:#f7fafc; padding:20px; border-radius:10px; border-left:4px solid #667eea; color:#212121;">${msg}</pre>`;
@@ -1829,13 +1839,88 @@ function copiarParteCima() {
 
 
 
+// ── Helpers para "Copiar Vídeos" ──────────────────────────────────────────────
+
+// Samples que são APENAS instrumento solo (sem "Loops Práticos para DAW")
+const samplesSoloOnly = new Set([
+  "LL Guitarra Distorção",
+  "LL Metais",
+  "LL Metais v2",
+  "LL Metais v3",
+  "LL Sax v1.5",
+  "LL Strings"
+]);
+
+// Ícone por instrumento
+function getIcone(nome) {
+  const n = nome.toLowerCase();
+  if (n.includes('guitarra') || n.includes('distorção')) return '🎸';
+  if (n.includes('bass'))      return '🎸';
+  if (n.includes('acordeon'))  return '🪗';
+  if (n.includes('violão') || n.includes('violao')) return '🎸';
+  if (n.includes('piano'))     return '🎹';
+  if (n.includes('sax'))       return '🎷';
+  if (n.includes('metais'))    return '🎺';
+  if (n.includes('strings'))   return '🎻';
+  if (n.includes('ukulele'))   return '🪕';
+  if (n.includes('cavaco'))    return '🪕';
+  if (n.includes('keys') || n.includes('synth')) return '🎹';
+  if (n.includes('drums') || n.includes('percuss') || n.includes('rythm')) return '🥁';
+  return '🎵';
+}
+
+// Bloco de card de apresentação (modo 1 sample)
+function gerarCardApresentacao(s) {
+  const icone = getIcone(s.nome);
+  const nomeUpper = s.nome.toUpperCase();
+  const valorCartao = (s.valor * 1.0524).toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+  const valorPix    = s.valor.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+  const soloOnly    = samplesSoloOnly.has(s.nome);
+  const video       = videosDemo[s.nome] || '';
+
+  const linhaInstrumento = soloOnly
+    ? `▶️ Instrumentos Solo.`
+    : `▶️ Instrumentos Solo e Loops Práticos para DAW.`;
+
+  return [
+    `${icone} *${nomeUpper}*`,
+    ``,
+    `✅ Kontakt compatível → 6.6.0 ou Superior`,
+    `🔄 BPM sincroniza automaticamente com a DAW.`,
+    linhaInstrumento,
+    ``,
+    `- Aceitamos:`,
+    `💳 Cartão c/ acréscimo: ${valorCartao}`,
+    `💵 *Pix: ${valorPix}*`,
+    video ? `\nDEMONSTRAÇÃO⤵️\n${video}` : ''
+  ].filter(l => l !== undefined).join('\n');
+}
+
+// Instruções especiais pós-link no envio de links
+const instrucoesEspeciais = {
+  "LL Metais v2": `\n🎷 LL METAIS v2 (Instruções) 🎺\n- O LL Metais contém dois tipos de instrumentos, um que tem a expressão regulada pelo pedal de expressão e outro pelo Modulation.\n- Basta extrair e adicionar a livraria.\n- O Pitch Bend pode ser utilizado para Fall ou notas Ascending. Basta descer ou subir a alavanca antes de soltar a tecla.\n✅ Para ter um efeito mais realista, observe a articulação do modulation.`,
+  "LL Metais 2.0": `\n🎷 LL METAIS v2 (Instruções) 🎺\n- O LL Metais contém dois tipos de instrumentos, um que tem a expressão regulada pelo pedal de expressão e outro pelo Modulation.\n- Basta extrair e adicionar a livraria.\n- O Pitch Bend pode ser utilizado para Fall ou notas Ascending. Basta descer ou subir a alavanca antes de soltar a tecla.\n✅ Para ter um efeito mais realista, observe a articulação do modulation.`,
+  "LL Strings": `\n🎻 LL Strings (Instruções) 🎻\n- O LL Strings contém cinco módulos: Perfect Strings, Stacatto, Miroslav, Strings Base e Impact Percussion.\n- O Perfect Strings e o Stacatto funcionam com o Modulation na posição pra baixo.\n- O Miroslav funciona ao pressionar o pedal sustain.\n- O Strings Base funciona ao subir o modulation para cima.\n- O Impact Percussion funciona em todos os módulos exceto com o Strings Base.\n- Para alterar os volumes ou mutar/solar os módulos é só acessar o MIXER.`
+};
+
+// ── copiarParteBaixo ───────────────────────────────────────────────────────────
 function copiarParteBaixo() {
   const msgNode = document.getElementById("mensagemPronta");
   if (!msgNode) {
     alert("⚠️ Gere o orçamento primeiro!");
     return;
   }
-  const texto = msgNode.innerText.trim();
+
+  // Pega o texto original e injeta instruções especiais após o link de cada sample especial
+  let texto = msgNode.innerText.trim();
+
+  // Para cada sample especial, insere as instruções logo após o link dele
+  for (const [nome, instrucoes] of Object.entries(instrucoesEspeciais)) {
+    const link = samplesData.find(s => s.nome === nome)?.link;
+    if (link && texto.includes(link)) {
+      texto = texto.replace(link, link + instrucoes);
+    }
+  }
 
   const textarea = document.createElement('textarea');
   textarea.value = texto;
@@ -1848,6 +1933,7 @@ function copiarParteBaixo() {
   alert("✅ Parte de baixo copiada!");
 }
 
+// ── copiarParteCimaComVideos ───────────────────────────────────────────────────
 function copiarParteCimaComVideos() {
     const preview = document.getElementById("previewArea");
     if (!preview) {
@@ -1855,61 +1941,67 @@ function copiarParteCimaComVideos() {
         return;
     }
 
+    // Modo especial: 1 sample selecionado → card de apresentação
+    if (selectedSamples.size === 1) {
+        const idx = [...selectedSamples][0];
+        const s = samplesData[idx];
+        const card = gerarCardApresentacao(s);
+
+        const textarea = document.createElement('textarea');
+        textarea.value = card;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert("✅ Card de apresentação copiado! 🎥");
+        return;
+    }
+
+    // Modo padrão: múltiplos samples → lista com vídeos
     const clone = preview.cloneNode(true);
     const msgNode = clone.querySelector("#mensagemPronta");
     if (msgNode) msgNode.remove();
 
-    // --- NOVA LÓGICA AQUI ---
-    // Remove o bloco de parcelas se ele não estiver visível
     const parcelasContainer = document.querySelector('.parcelas-container');
     const parcelasVisiveis = parcelasContainer && parcelasContainer.classList.contains('show');
     if (!parcelasVisiveis) {
         const parcelasNode = clone.querySelector('.parcelas-container');
-        if (parcelasNode) {
-            parcelasNode.remove();
-        }
-    }
-    // --- FIM DA NOVA LÓGICA ---
-
-    let texto = clone.innerText;
-    texto = texto.replace(/•\s*/g, '\n• ');
-
-    const linhas = texto.split('\n');
-    const resultado = [];
-
-    for (let i = 0; i < linhas.length; i++) {
-        const linha = linhas[i].trim();
-        if (linha) {
-            resultado.push(linha);
-
-            // Adiciona linha em branco após "SAMPLES SELECIONADOS:"
-            if (linha.includes('🗒️ SAMPLES SELECIONADOS:')) {
-                resultado.push('');
-            }
-
-            // Se é um sample, adiciona vídeo (se houver) e linha em branco
-            if (linha.startsWith('•')) {
-                const nome = linha.split(' - ')[0].replace('•', '').trim();
-                if (videosDemo[nome]) {
-                    resultado.push('🎥 Vídeo: ' + videosDemo[nome]);
-                }
-                resultado.push('');
-            }
-
-            // Adiciona linha em branco antes dos totais
-            if (linha.includes('💰 Valor Bruto') || linha.includes('💳 Total Final')) {
-                resultado.pop(); // Remove a última linha em branco
-                resultado.push('');
-                resultado.push(linha);
-                continue;
-            }
-        }
+        if (parcelasNode) parcelasNode.remove();
     }
 
-    const textoFinal = resultado.join('\n');
+    // Mesma limpeza do copiarParteCima
+    let texto = clone.innerText
+      .replace(/\r/g, '')
+      .replace(/^\s+/gm, '')
+      .replace(/[ \t]+/g, ' ')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+
+    texto = texto.replace(/([^\n])•/g, '$1\n•');
+
+    texto = texto
+      .replace(/(🎹 LL SAMPLES 🎹)/g, '$1\n')
+      .replace(/(🌟 ORÇAMENTO ESPECIAL[^\n]+)/g, '\n$1\n')
+      .replace(/(🗒️ SAMPLES SELECIONADOS:)/g, '\n$1')
+      .replace(/(💰 Valor Bruto[^\n]+)/g, '\n$1')
+      .replace(/(💳 Total Final[^\n]+)/g, '\n$1')
+      .replace(/(💵 Total Final[^\n]+)/g, '$1')
+      .replace(/\n{3,}/g, '\n\n');
+
+    // Injeta vídeo após cada linha de sample (• Nome - R$ X)
+    texto = texto.replace(/^(• .+)$/gm, (linha) => {
+        const nome = linha.split(' - ')[0].replace('•', '').trim();
+        const video = videosDemo[nome];
+        return video ? linha + '\n🎥 Vídeo: ' + video : linha;
+    });
+
+    // Garante uma linha em branco entre o vídeo de um sample e o bullet do próximo
+    texto = texto.replace(/(🎥 Vídeo: [^\n]+)\n(•)/g, '$1\n\n$2');
 
     const textarea = document.createElement('textarea');
-    textarea.value = textoFinal;
+    textarea.value = texto;
     textarea.style.position = 'fixed';
     textarea.style.opacity = '0';
     document.body.appendChild(textarea);
