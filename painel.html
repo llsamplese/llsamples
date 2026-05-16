@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Gerador LL Samples</title>
+  <link rel="icon" type="image/png" href="https://llsamplese.github.io/llcatalogo/Layer%205.png">
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --bg: #050505;
+      --panel: rgba(20, 20, 20, .94);
+      --panel-2: rgba(30, 30, 30, .92);
+      --line: rgba(255, 193, 7, .25);
+      --gold: #ffc107;
+      --gold-2: #ffe27a;
+      --text: #fff8dc;
+      --muted: #b8a96d;
+      --danger: #ff6b6b;
+      --ok: #2ecc71;
+    }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255, 193, 7, .16), transparent 22%),
+        linear-gradient(180deg, #030303 0%, #10100d 100%);
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .shell {
+      width: min(1360px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 18px;
+    }
+    .topbar,
+    .card {
+      background: linear-gradient(145deg, rgba(20,20,20,.96), rgba(12,12,12,.98));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+    }
+    .topbar {
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 12px rgba(255, 193, 7, .28));
+    }
+    .brand strong {
+      display: block;
+      font-size: 20px;
+    }
+    .brand span {
+      display: block;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    button,
+    .button {
+      border: 1px solid rgba(255, 193, 7, .28);
+      background: rgba(255, 193, 7, .12);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    button.primary {
+      background: linear-gradient(135deg, #ffe27a, #ffc107);
+      color: #161103;
+      border-color: transparent;
+    }
+    button.danger {
+      background: rgba(255, 107, 107, .13);
+      border-color: rgba(255, 107, 107, .35);
+      color: #ffd7d7;
+    }
+    button:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+    .card {
+      padding: 20px;
+    }
+    .card h1,
+    .card h2 {
+      margin: 0 0 8px;
+    }
+    .card p,
+    .hint {
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .grid.two {
+      grid-template-columns: 1.2fr 1fr;
+    }
+    input,
+    textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 13px 14px;
+      outline: none;
+      font-size: 15px;
+    }
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+      font-family: Consolas, monospace;
+    }
+    input:focus,
+    textarea:focus {
+      border-color: rgba(255, 193, 7, .62);
+      box-shadow: 0 0 0 3px rgba(255, 193, 7, .12);
+    }
+    .status {
+      display: none;
+      border-radius: 16px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 193, 7, .28);
+      background: rgba(255, 193, 7, .10);
+      color: var(--text);
+      font-weight: 700;
+    }
+    .status.open { display: block; }
+    .status.ok {
+      border-color: rgba(46, 204, 113, .4);
+      background: rgba(46, 204, 113, .12);
+    }
+    .status.error {
+      border-color: rgba(255, 107, 107, .45);
+      background: rgba(255, 107, 107, .12);
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .stat {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .stat span {
+      display: block;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 12px;
+    }
+    .stat strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 28px;
+    }
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 10px;
+      align-items: center;
+    }
+    .list {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+      max-height: 68vh;
+      overflow: auto;
+      padding-right: 6px;
+    }
+    .sample-card {
+      background: var(--panel-2);
+      border: 1px solid rgba(255, 255, 255, .10);
+      border-radius: 20px;
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+    }
+    .sample-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .sample-head strong {
+      font-size: 17px;
+      color: #fff7d1;
+    }
+    .sample-head small {
+      display: block;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .sample-fields {
+      display: grid;
+      grid-template-columns: 2fr .7fr .6fr;
+      gap: 10px;
+    }
+    .sample-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .lock {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .78);
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      z-index: 10;
+    }
+    .lock.hidden { display: none; }
+    .lock-card {
+      width: min(440px, 100%);
+      background: #111;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+    }
+    .lock-card h2 { margin: 0 0 8px; }
+    .lock-card input { margin: 14px 0 10px; }
+    @media (max-width: 760px) {
+      body { padding: 12px; }
+      .topbar,
+      .grid.two,
+      .toolbar,
+      .sample-head,
+      .sample-fields,
+      .sample-links {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+      }
+      .stats,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .actions { width: 100%; }
+      button,
+      .button { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div id="lock" class="lock">
+    <form class="lock-card" onsubmit="unlockPanel(event)">
+      <h2>Painel do gerador</h2>
+      <p class="hint">Digite a senha para editar os samples do gerador de orçamentos.</p>
+      <input id="panelPassword" type="password" placeholder="Senha do painel" autocomplete="current-password">
+      <button class="primary" type="submit">Entrar</button>
+      <p id="lockError" class="hint" style="display:none;color:#ffb4b4;margin-top:12px;">Senha incorreta.</p>
+    </form>
+  </div>
+
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <img src="https://llsamplese.github.io/llcatalogo/Layer%205.png" alt="LL Samples">
+        <div>
+          <strong>Gerador de Orçamentos</strong>
+          <span>Cadastro de samples, links, vídeos e preços</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="button" href="./index.html">Abrir gerador</a>
+        <a class="button" href="https://github.com/llsamplese/llsamples" target="_blank" rel="noopener">Repositório</a>
+      </div>
+    </header>
+
+    <section class="card">
+      <h1>Samples do gerador</h1>
+      <p>Carregue o catálogo atual, edite os dados e salve direto no GitHub Pages. O token não fica no código; ele é usado só no seu navegador para gravar no repositório.</p>
+      <div class="grid two">
+        <div>
+          <label class="hint" for="githubToken">GitHub token com acesso ao repo llsamplese/llsamples</label>
+          <input id="githubToken" type="password" placeholder="Cole o token aqui para permitir salvar no GitHub">
+        </div>
+        <div class="actions" style="align-self:end;">
+          <button type="button" onclick="loadCatalog()">Carregar catálogo</button>
+          <button class="primary" type="button" onclick="saveCatalog()">Salvar no GitHub</button>
+        </div>
+      </div>
+      <div id="statusBox" class="status"></div>
+      <div class="stats">
+        <div class="stat"><span>Samples</span><strong id="statSamples">0</strong></div>
+        <div class="stat"><span>Com vídeo</span><strong id="statVideos">0</strong></div>
+        <div class="stat"><span>Com download</span><strong id="statDownloads">0</strong></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="toolbar">
+        <input id="searchInput" type="text" placeholder="Buscar sample" oninput="renderProducts()">
+        <button type="button" onclick="addProduct()">Novo sample</button>
+        <button type="button" onclick="sortByOrder()">Reordenar</button>
+        <button class="danger" type="button" onclick="resetLocalChanges()">Desfazer alterações locais</button>
+      </div>
+      <div id="productList" class="list"></div>
+    </section>
+  </main>
+
+  <script>
+    const REPO = "llsamplese/llsamples";
+    const BRANCH = "main";
+    const FILE_PATH = "index.html";
+    const SESSION_KEY = "llsamples-generator-panel-unlocked";
+    const PANEL_PASSWORD = "3007";
+    let sourceHtml = "";
+    let sourceSha = "";
+    let products = [];
+
+    function unlockPanel(event) {
+      event.preventDefault();
+      const password = document.getElementById("panelPassword").value.trim();
+      if (password !== PANEL_PASSWORD) {
+        document.getElementById("lockError").style.display = "block";
+        return;
+      }
+      sessionStorage.setItem(SESSION_KEY, "true");
+      document.getElementById("lock").classList.add("hidden");
+      loadCatalog();
+    }
+
+    if (sessionStorage.getItem(SESSION_KEY) === "true") {
+      document.getElementById("lock").classList.add("hidden");
+      setTimeout(loadCatalog, 60);
+    }
+
+    function setStatus(message, type = "") {
+      const box = document.getElementById("statusBox");
+      box.textContent = message;
+      box.className = `status open${type ? ` ${type}` : ""}`;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function normalizePrice(value) {
+      return Number(String(value ?? 0).replace(",", ".")) || 0;
+    }
+
+    function decodeBase64Utf8(base64) {
+      const binary = atob(String(base64 || "").replace(/\n/g, ""));
+      const bytes = Uint8Array.from(binary, char => char.charCodeAt(0));
+      return new TextDecoder().decode(bytes);
+    }
+
+    function encodeBase64Utf8(text) {
+      const bytes = new TextEncoder().encode(text);
+      let binary = "";
+      bytes.forEach(byte => binary += String.fromCharCode(byte));
+      return btoa(binary);
+    }
+
+    function getToken() {
+      return document.getElementById("githubToken").value.trim();
+    }
+
+    function githubHeaders(requireToken = false) {
+      const token = getToken();
+      const headers = {
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28"
+      };
+      if (token) headers.Authorization = `Bearer ${token}`;
+      if (requireToken && !token) throw new Error("Cole o token do GitHub antes de salvar.");
+      return headers;
+    }
+
+    async function fetchGithubIndex() {
+      const response = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=${BRANCH}`, {
+        headers: githubHeaders(false),
+        cache: "no-store"
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.message || "Não foi possível carregar o index.html do GitHub.");
+      sourceSha = data.sha || "";
+      sourceHtml = decodeBase64Utf8(data.content || "");
+      return sourceHtml;
+    }
+
+    async function loadCatalog() {
+      setStatus("Carregando catálogo do gerador...");
+      try {
+        const html = await fetchGithubIndex();
+        products = parseProductsFromHtml(html);
+        renderProducts();
+        updateStats();
+        setStatus("Catálogo carregado com sucesso.", "ok");
+      } catch (error) {
+        setStatus(error.message || "Erro ao carregar catálogo.", "error");
+      }
+    }
+
+    function parseProductsFromHtml(html) {
+      const rawMatch = String(html || "").match(/const\s+rawData\s*=\s*`([\s\S]*?)`;/);
+      if (!rawMatch) throw new Error("Não encontrei o bloco rawData no index.html.");
+      const parsed = rawMatch[1].split(/\r?\n/).map((line, index) => {
+        const [nome, link, valor] = line.split("|");
+        return {
+          nome: String(nome || "").trim(),
+          downloadUrl: String(link || "").trim(),
+          valor: normalizePrice(valor),
+          video: "",
+          order: index + 1
+        };
+      }).filter(product => product.nome);
+
+      const videosMatch = String(html || "").match(/const\s+videosDemo\s*=\s*\{([\s\S]*?)\n\};/);
+      if (videosMatch) {
+        try {
+          const videos = Function(`"use strict"; return ({${videosMatch[1]}\n});`)();
+          parsed.forEach(product => product.video = String(videos?.[product.nome] || "").trim());
+        } catch {
+          setStatus("Catálogo carregado, mas alguns vídeos antigos não puderam ser lidos automaticamente.", "error");
+        }
+      }
+      return parsed;
+    }
+
+    function updateStats() {
+      document.getElementById("statSamples").textContent = products.length;
+      document.getElementById("statVideos").textContent = products.filter(product => product.video).length;
+      document.getElementById("statDownloads").textContent = products.filter(product => product.downloadUrl).length;
+    }
+
+    function renderProducts() {
+      const host = document.getElementById("productList");
+      const query = String(document.getElementById("searchInput").value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+      const rows = products.map((product, index) => ({ product, index })).filter(({ product }) => {
+        const name = String(product.nome || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        return !query || name.includes(query);
+      });
+      if (!rows.length) {
+        host.innerHTML = `<div class="hint">Nenhum sample encontrado.</div>`;
+        return;
+      }
+      host.innerHTML = rows.map(({ product, index }) => `
+        <div class="sample-card">
+          <div class="sample-head">
+            <div>
+              <strong>${escapeHtml(product.nome || "Novo sample")}</strong>
+              <small>Ordem ${escapeHtml(product.order || index + 1)} · ${escapeHtml(product.downloadUrl ? "download cadastrado" : "sem download")}</small>
+            </div>
+            <div class="actions">
+              <button type="button" onclick="moveProduct(${index}, -1)">Subir</button>
+              <button type="button" onclick="moveProduct(${index}, 1)">Descer</button>
+              <button class="danger" type="button" onclick="removeProduct(${index})">Remover</button>
+            </div>
+          </div>
+          <div class="sample-fields">
+            <input value="${escapeHtml(product.nome)}" placeholder="Nome do sample" oninput="updateProduct(${index}, 'nome', this.value)">
+            <input type="number" min="0" step="0.01" value="${escapeHtml(product.valor)}" placeholder="Preço" oninput="updateProduct(${index}, 'valor', this.value)">
+            <input type="number" min="1" step="1" value="${escapeHtml(product.order || index + 1)}" placeholder="Ordem" oninput="updateProduct(${index}, 'order', this.value)">
+          </div>
+          <div class="sample-links">
+            <input value="${escapeHtml(product.downloadUrl)}" placeholder="Link de download" oninput="updateProduct(${index}, 'downloadUrl', this.value)">
+            <input value="${escapeHtml(product.video)}" placeholder="Link do YouTube / vídeo" oninput="updateProduct(${index}, 'video', this.value)">
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function updateProduct(index, field, value) {
+      if (!products[index]) return;
+      products[index][field] = field === "valor" || field === "order" ? value : String(value || "");
+      updateStats();
+    }
+
+    function addProduct() {
+      const nextOrder = products.reduce((max, product) => Math.max(max, Number(product.order || 0)), 0) + 1;
+      products.unshift({ nome: "", downloadUrl: "", valor: 70, video: "", order: nextOrder });
+      renderProducts();
+      updateStats();
+      setStatus("Novo sample criado. Preencha os campos e salve no GitHub.", "ok");
+    }
+
+    function removeProduct(index) {
+      const product = products[index];
+      if (!product) return;
+      if (!confirm(`Remover "${product.nome || "novo sample"}" do gerador?`)) return;
+      products.splice(index, 1);
+      sortByOrder(false);
+      renderProducts();
+      updateStats();
+    }
+
+    function moveProduct(index, direction) {
+      const nextIndex = index + direction;
+      if (nextIndex < 0 || nextIndex >= products.length) return;
+      const [item] = products.splice(index, 1);
+      products.splice(nextIndex, 0, item);
+      products.forEach((product, orderIndex) => product.order = orderIndex + 1);
+      renderProducts();
+    }
+
+    function sortByOrder(showMessage = true) {
+      products.sort((a, b) => Number(a.order || 0) - Number(b.order || 0) || String(a.nome).localeCompare(String(b.nome), "pt-BR"));
+      products.forEach((product, index) => product.order = index + 1);
+      renderProducts();
+      if (showMessage) setStatus("Lista reordenada localmente. Clique em Salvar no GitHub para publicar.", "ok");
+    }
+
+    function sanitizeProducts() {
+      const clean = products.map((product, index) => ({
+        nome: String(product.nome || "").trim(),
+        downloadUrl: String(product.downloadUrl || "").trim(),
+        valor: normalizePrice(product.valor),
+        video: String(product.video || "").trim(),
+        order: Number.parseInt(String(product.order || index + 1), 10) || index + 1
+      })).filter(product => product.nome);
+      const seen = new Set();
+      clean.forEach(product => {
+        const key = product.nome.toLowerCase();
+        if (seen.has(key)) throw new Error(`Sample duplicado: ${product.nome}`);
+        seen.add(key);
+      });
+      return clean.sort((a, b) => a.order - b.order || a.nome.localeCompare(b.nome, "pt-BR")).map((product, index) => ({ ...product, order: index + 1 }));
+    }
+
+    function buildRawData(nextProducts) {
+      return nextProducts.map(product => `${product.nome}|${product.downloadUrl}|${product.valor}`).join("\n");
+    }
+
+    function buildVideosDemo(nextProducts) {
+      const entries = nextProducts.filter(product => product.video).map(product => `  ${JSON.stringify(product.nome)}: ${JSON.stringify(product.video)}`);
+      return `const videosDemo = {\n${entries.join(",\n")}\n};`;
+    }
+
+    function buildNextHtml(nextProducts) {
+      let html = sourceHtml;
+      html = html.replace(/const\s+rawData\s*=\s*`[\s\S]*?`;/, `const rawData = \`${buildRawData(nextProducts)}\`;`);
+      html = html.replace(/const\s+videosDemo\s*=\s*\{[\s\S]*?\n\};/, buildVideosDemo(nextProducts));
+      return html;
+    }
+
+    async function saveCatalog() {
+      try {
+        githubHeaders(true);
+        const nextProducts = sanitizeProducts();
+        setStatus("Salvando no GitHub...");
+        if (!sourceSha || !sourceHtml) await fetchGithubIndex();
+        const response = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
+          method: "PUT",
+          headers: {
+            ...githubHeaders(true),
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            message: "Update quote generator catalog",
+            branch: BRANCH,
+            sha: sourceSha,
+            content: encodeBase64Utf8(buildNextHtml(nextProducts))
+          })
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || "Não foi possível salvar no GitHub.");
+        sourceSha = data.content?.sha || sourceSha;
+        products = nextProducts;
+        renderProducts();
+        updateStats();
+        setStatus("Gerador salvo no GitHub. O GitHub Pages deve atualizar em alguns instantes.", "ok");
+      } catch (error) {
+        setStatus(error.message || "Erro ao salvar no GitHub.", "error");
+      }
+    }
+
+    function resetLocalChanges() {
+      if (!confirm("Descartar alterações locais e recarregar o catálogo publicado?")) return;
+      loadCatalog();
+    }
+  </script>
+</body>
+</html>
